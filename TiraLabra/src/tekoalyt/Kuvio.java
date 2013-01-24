@@ -21,6 +21,7 @@ public class Kuvio extends AI {
 
     @Override
     public void vastaanotaSiirto(Siirto siirto) {
+        laskuri++;
         if (laskuri % 3 == 0) {
             seuraavaSiirto = Siirto.PETOS;
         } else {
