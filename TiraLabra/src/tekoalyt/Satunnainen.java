@@ -4,7 +4,6 @@
  */
 package tekoalyt;
 
-import java.util.Random;
 import tiralabra.Siirto;
 
 /**

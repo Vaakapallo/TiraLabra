@@ -19,7 +19,7 @@ public class TiraLabra {
         Logiikka log = new Logiikka();
         log.lisaaTekoaly(new Hyvis());
         log.lisaaTekoaly(new Pahis());
-        log.lisaaTekoaly(new Satunnainen());
+//        log.lisaaTekoaly(new Satunnainen());
         log.lisaaTekoaly(new Matkija());
         log.lisaaTekoaly(new Kostaja());
         log.lisaaTekoaly(new Kuvio());

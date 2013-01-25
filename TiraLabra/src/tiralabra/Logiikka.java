@@ -15,7 +15,7 @@ import tekoalyt.AI;
  */
 public class Logiikka {
 
-    List<AI> tekoalyt;
+    private List<AI> tekoalyt;
     private final int yhteistyoPalkinto = 1;
     private final int tyhmyrinRangaistus = 10;
     private final int pettureidenKompromissi = 5;
@@ -52,7 +52,7 @@ public class Logiikka {
         toka.vastaanotaSiirto(ensimmaisen);
     }
 
-    void peluutaKaikkia() {
+    public void peluutaKaikkia() {
         for (AI ai1 : tekoalyt) {
             for (AI ai2 : tekoalyt) {
                 pelaaKierroksia(100, ai1, ai2);
