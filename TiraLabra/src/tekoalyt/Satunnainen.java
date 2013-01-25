@@ -15,17 +15,19 @@ public class Satunnainen extends AI {
 
     public Satunnainen() {
         super("Satunnainen", Siirto.YHTEISTYO);
+        seuraavaSiirto = satunnainenSiirto();
     }
 
     @Override
-    public void maaritaSeuraavaSiirto(Siirto siirto) {
+    public void vastaanotaSiirto(Siirto siirto) {
         seuraavaSiirto = satunnainenSiirto();
 //        System.out.println("Siirto = " + seuraavaSiirto);
     }
 
     /**
-     * 
-     * @return 
+     * Satunnaisen siirron arpova metodi.
+     *
+     * @return seuraava siirto.
      */
     private Siirto satunnainenSiirto() {
         if (Math.random() >= 0.5) {

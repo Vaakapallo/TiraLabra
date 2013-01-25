@@ -77,7 +77,5 @@ public class LogiikkaTest {
         log.pelaaKierroksia(-50, h, h);
         assertEquals(0, h.getPisteet());
     }
-    
-    
-    
+        
 }

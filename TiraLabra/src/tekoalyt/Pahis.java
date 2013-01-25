@@ -18,7 +18,7 @@ public class Pahis extends AI {
     }
 
     @Override
-    public void maaritaSeuraavaSiirto(Siirto siirto) {
+    public void vastaanotaSiirto(Siirto siirto) {
     }
 
     @Override

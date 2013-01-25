@@ -20,15 +20,15 @@ public class Kuvio extends AI {
 
     public Kuvio() {
         super("Kuvio", Siirto.YHTEISTYO);
-        laskuri = 0;
+        laskuri = 1;
     }
 
     /**
-     * Maarittaa kuvion kohdan
+     * Maarittaa siirtokuvion tämänhetkisen kohdan.
      * @param siirto 
      */
     @Override
-    public void maaritaSeuraavaSiirto(Siirto siirto) {
+    public void vastaanotaSiirto(Siirto siirto) {
         laskuri++;
         if (laskuri % 3 == 0) {
             seuraavaSiirto = Siirto.PETOS;
@@ -40,6 +40,6 @@ public class Kuvio extends AI {
     @Override
     public void palautaEnsimmainenSiirto() {
         seuraavaSiirto = Siirto.YHTEISTYO;
-        laskuri = 0;
+        laskuri = 1;
     }
 }

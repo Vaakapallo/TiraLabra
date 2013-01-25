@@ -72,8 +72,8 @@ public class Logiikka {
         Siirto ensimmaisen = eka.teeSiirto();
         Siirto toisen = toka.teeSiirto();
         jaaPisteet(ensimmaisen, toisen, eka, toka);
-        eka.maaritaSeuraavaSiirto(toisen);
-        toka.maaritaSeuraavaSiirto(ensimmaisen);
+        eka.vastaanotaSiirto(toisen);
+        toka.vastaanotaSiirto(ensimmaisen);
     }
 
     /**

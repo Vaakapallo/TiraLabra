@@ -34,34 +34,68 @@ public class TekoalyTest {
         matkija = new Matkija();
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
     @Test
-    public void hyvisTekeeAinaYhteistyota() {
+    public void hyvisOnKiva() {
         assertTrue(hyvis.teeSiirto() == Siirto.YHTEISTYO);
-        hyvis.maaritaSeuraavaSiirto(Siirto.PETOS);
+        hyvis.vastaanotaSiirto(Siirto.PETOS);
         assertTrue(hyvis.teeSiirto() == Siirto.YHTEISTYO);
-        hyvis.maaritaSeuraavaSiirto(Siirto.YHTEISTYO);
+        hyvis.vastaanotaSiirto(Siirto.YHTEISTYO);
         assertTrue(hyvis.teeSiirto() == Siirto.YHTEISTYO);
     }
 
     @Test
-    public void pahisPettaaAina() {
+    public void pahisOnPaha() {
         assertTrue(pahis.teeSiirto() == Siirto.PETOS);
-        pahis.maaritaSeuraavaSiirto(Siirto.PETOS);
+        pahis.vastaanotaSiirto(Siirto.PETOS);
         assertTrue(pahis.teeSiirto() == Siirto.PETOS);
-        pahis.maaritaSeuraavaSiirto(Siirto.YHTEISTYO);
+        pahis.vastaanotaSiirto(Siirto.YHTEISTYO);
         assertTrue(pahis.teeSiirto() == Siirto.PETOS);
     }
 
     @Test
-    public void matkijaMatkiiOikein() {
-        matkija.maaritaSeuraavaSiirto(Siirto.YHTEISTYO);
+    public void matkijaMatkii() {
+        matkija.vastaanotaSiirto(Siirto.YHTEISTYO);
         assertTrue(matkija.teeSiirto() == Siirto.YHTEISTYO);
-        matkija.maaritaSeuraavaSiirto(Siirto.PETOS);
+        matkija.vastaanotaSiirto(Siirto.PETOS);
         assertTrue(matkija.teeSiirto() == Siirto.PETOS);
-        matkija.maaritaSeuraavaSiirto(Siirto.YHTEISTYO);
+        matkija.vastaanotaSiirto(Siirto.YHTEISTYO);
         assertTrue(matkija.teeSiirto() == Siirto.YHTEISTYO);
+    }
+
+    @Test
+    public void kostajaKostaa() {
+        Kostaja kostaja = new Kostaja();
+        assertTrue(kostaja.teeSiirto() == Siirto.YHTEISTYO);
+        kostaja.vastaanotaSiirto(Siirto.YHTEISTYO);
+        assertTrue(kostaja.teeSiirto() == Siirto.YHTEISTYO);
+        kostaja.vastaanotaSiirto(Siirto.PETOS);
+        assertTrue(kostaja.teeSiirto() == Siirto.PETOS);
+    }
+
+    @Test
+    public void epailijaToimii() {
+        Epailija epailija = new Epailija();
+        assertTrue(epailija.teeSiirto() == Siirto.PETOS);
+        epailija.vastaanotaSiirto(Siirto.PETOS);
+        assertTrue(epailija.teeSiirto() == Siirto.PETOS);
+        epailija.vastaanotaSiirto(Siirto.YHTEISTYO);
+        assertTrue(epailija.teeSiirto() == Siirto.YHTEISTYO);
+    }
+
+    @Test
+    public void kuvioNoudattaaKuviota() {
+        Kuvio kuvio = new Kuvio();
+        assertTrue(kuvio.teeSiirto() == Siirto.YHTEISTYO);
+        kuvio.vastaanotaSiirto(Siirto.PETOS);
+        assertTrue(kuvio.teeSiirto() == Siirto.YHTEISTYO);
+        kuvio.vastaanotaSiirto(Siirto.PETOS);
+        assertTrue(kuvio.teeSiirto() == Siirto.PETOS);
+        kuvio.vastaanotaSiirto(Siirto.PETOS);
+        assertTrue(kuvio.teeSiirto() == Siirto.YHTEISTYO);
+        kuvio.vastaanotaSiirto(Siirto.PETOS);
+        assertTrue(kuvio.teeSiirto() == Siirto.YHTEISTYO);
+        kuvio.vastaanotaSiirto(Siirto.PETOS);
+        assertTrue(kuvio.teeSiirto() == Siirto.PETOS);
+        kuvio.vastaanotaSiirto(Siirto.PETOS);
     }
 }

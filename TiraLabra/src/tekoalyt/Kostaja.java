@@ -19,8 +19,12 @@ public class Kostaja extends AI {
         super("Kostaja", Siirto.YHTEISTYO);
     }
 
+    /**
+     * Jos tekoäly petetään, se pettää loppukierroksen.
+     * @param siirto 
+     */
     @Override
-    public void maaritaSeuraavaSiirto(Siirto siirto) {
+    public void vastaanotaSiirto(Siirto siirto) {
         if (siirto == Siirto.PETOS) {
             seuraavaSiirto = Siirto.PETOS;
         }

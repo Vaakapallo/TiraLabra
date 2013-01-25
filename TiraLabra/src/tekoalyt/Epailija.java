@@ -14,8 +14,12 @@ public class Epailija extends AI {
         super("Epailija", Siirto.PETOS);
     }
 
+    /**
+     * Jos tekoälylle ollaan ystävällinen, se tekee yhteistyötä loppukierroksen.
+     * @param siirto 
+     */
     @Override
-    public void maaritaSeuraavaSiirto(Siirto siirto) {
+    public void vastaanotaSiirto(Siirto siirto) {
         if (siirto == Siirto.YHTEISTYO) {
             seuraavaSiirto = Siirto.YHTEISTYO;
         }

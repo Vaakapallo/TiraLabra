@@ -17,8 +17,12 @@ public class Matkija extends AI {
         super("Matkija (Tit for Tat)", Siirto.YHTEISTYO);
     }
 
+    /**
+     * Vastaanottaa siirron ja säätää sen tekoälyn seuraavaksi siirroksi.
+     * @param siirto Toisen pelaajan viime kierroksen siirto
+     */
     @Override
-    public void maaritaSeuraavaSiirto(Siirto siirto) {
+    public void vastaanotaSiirto(Siirto siirto) {
         seuraavaSiirto = siirto;
     }
 
