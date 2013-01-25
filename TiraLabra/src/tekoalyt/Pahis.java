@@ -7,7 +7,8 @@ package tekoalyt;
 import tiralabra.Siirto;
 
 /**
- *
+ * Teko"äly", joka pettää aina.
+ * 
  * @author lvapaaka
  */
 public class Pahis extends AI {
@@ -17,6 +18,10 @@ public class Pahis extends AI {
     }
 
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
+    public void maaritaSeuraavaSiirto(Siirto siirto) {
+    }
+
+    @Override
+    public void palautaEnsimmainenSiirto() {
     }
 }

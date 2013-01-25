@@ -7,7 +7,8 @@ package tekoalyt;
 import tiralabra.Siirto;
 
 /**
- *
+ * Tekoäly, joka ensimmäisenä siirtona yhteistyötä, sitten vain kopioi toisen pelaajan siirron.
+ * 
  * @author lvapaaka
  */
 public class Matkija extends AI {
@@ -17,7 +18,12 @@ public class Matkija extends AI {
     }
 
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
+    public void maaritaSeuraavaSiirto(Siirto siirto) {
         seuraavaSiirto = siirto;
+    }
+
+    @Override
+    public void palautaEnsimmainenSiirto() {
+        seuraavaSiirto = Siirto.YHTEISTYO;
     }
 }

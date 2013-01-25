@@ -7,11 +7,15 @@ package tekoalyt;
 import tiralabra.Siirto;
 
 /**
+ * Tekoäly joka pelaa tasaista kuviota.
  *
  * @author lvapaaka
  */
 public class Kuvio extends AI {
 
+    /**
+     * Kuvion suorittamista avittava laskuri.
+     */
     private int laskuri;
 
     public Kuvio() {
@@ -19,8 +23,12 @@ public class Kuvio extends AI {
         laskuri = 0;
     }
 
+    /**
+     * Maarittaa kuvion kohdan
+     * @param siirto 
+     */
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
+    public void maaritaSeuraavaSiirto(Siirto siirto) {
         laskuri++;
         if (laskuri % 3 == 0) {
             seuraavaSiirto = Siirto.PETOS;
@@ -29,4 +37,9 @@ public class Kuvio extends AI {
         }
     }
 
+    @Override
+    public void palautaEnsimmainenSiirto() {
+        seuraavaSiirto = Siirto.YHTEISTYO;
+        laskuri = 0;
+    }
 }

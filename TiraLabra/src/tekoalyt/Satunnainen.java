@@ -7,6 +7,7 @@ package tekoalyt;
 import tiralabra.Siirto;
 
 /**
+ * Tekoäly, joka valitsee satunnaisen siirron.
  *
  * @author lvapaaka
  */
@@ -17,16 +18,24 @@ public class Satunnainen extends AI {
     }
 
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
+    public void maaritaSeuraavaSiirto(Siirto siirto) {
         seuraavaSiirto = satunnainenSiirto();
 //        System.out.println("Siirto = " + seuraavaSiirto);
     }
 
+    /**
+     * 
+     * @return 
+     */
     private Siirto satunnainenSiirto() {
         if (Math.random() >= 0.5) {
             return Siirto.YHTEISTYO;
         } else {
             return Siirto.PETOS;
         }
+    }
+
+    @Override
+    public void palautaEnsimmainenSiirto() {
     }
 }

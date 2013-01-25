@@ -69,4 +69,15 @@ public class LogiikkaTest {
         assertEquals(0, eka.getPisteet());
         assertEquals(10, toka.getPisteet());
     }
+
+    @Test
+    public void negatiivinenKierrosMaaraEiTeeMitaan() {
+        Hyvis h = new Hyvis();
+        assertEquals(0, h.getPisteet());
+        log.pelaaKierroksia(-50, h, h);
+        assertEquals(0, h.getPisteet());
+    }
+    
+    
+    
 }

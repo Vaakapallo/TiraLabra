@@ -1,13 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package tekoalyt;
 
 import tiralabra.Siirto;
 
 /**
- *
+ * Tekoäly, joka pettää kunnes toinen pelaaja tekee yhteistyötä.
+ * 
+ * Tämän jälkeen se tekee aina yhteistyötä
  * @author lvapaaka
  */
 public class Epailija extends AI {
@@ -17,9 +15,14 @@ public class Epailija extends AI {
     }
 
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
+    public void maaritaSeuraavaSiirto(Siirto siirto) {
         if (siirto == Siirto.YHTEISTYO) {
             seuraavaSiirto = Siirto.YHTEISTYO;
         }
+    }
+
+    @Override
+    public void palautaEnsimmainenSiirto() {
+        seuraavaSiirto = Siirto.PETOS;
     }
 }

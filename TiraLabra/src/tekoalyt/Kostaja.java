@@ -7,7 +7,10 @@ package tekoalyt;
 import tiralabra.Siirto;
 
 /**
- *
+ * Tekoäly, joka tekee yhteistyötä kunnes toinen pettää.
+ * 
+ * Tämän jälkeen se pettää ikuisesti.
+ * 
  * @author lvapaaka
  */
 public class Kostaja extends AI {
@@ -17,9 +20,14 @@ public class Kostaja extends AI {
     }
 
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
+    public void maaritaSeuraavaSiirto(Siirto siirto) {
         if (siirto == Siirto.PETOS) {
             seuraavaSiirto = Siirto.PETOS;
         }
+    }
+
+    @Override
+    public void palautaEnsimmainenSiirto() {
+        seuraavaSiirto = Siirto.YHTEISTYO;
     }
 }

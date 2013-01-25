@@ -40,28 +40,28 @@ public class TekoalyTest {
     @Test
     public void hyvisTekeeAinaYhteistyota() {
         assertTrue(hyvis.teeSiirto() == Siirto.YHTEISTYO);
-        hyvis.vastaanotaSiirto(Siirto.PETOS);
+        hyvis.maaritaSeuraavaSiirto(Siirto.PETOS);
         assertTrue(hyvis.teeSiirto() == Siirto.YHTEISTYO);
-        hyvis.vastaanotaSiirto(Siirto.YHTEISTYO);
+        hyvis.maaritaSeuraavaSiirto(Siirto.YHTEISTYO);
         assertTrue(hyvis.teeSiirto() == Siirto.YHTEISTYO);
     }
 
     @Test
     public void pahisPettaaAina() {
         assertTrue(pahis.teeSiirto() == Siirto.PETOS);
-        pahis.vastaanotaSiirto(Siirto.PETOS);
+        pahis.maaritaSeuraavaSiirto(Siirto.PETOS);
         assertTrue(pahis.teeSiirto() == Siirto.PETOS);
-        pahis.vastaanotaSiirto(Siirto.YHTEISTYO);
+        pahis.maaritaSeuraavaSiirto(Siirto.YHTEISTYO);
         assertTrue(pahis.teeSiirto() == Siirto.PETOS);
     }
 
     @Test
     public void matkijaMatkiiOikein() {
-        matkija.vastaanotaSiirto(Siirto.YHTEISTYO);
+        matkija.maaritaSeuraavaSiirto(Siirto.YHTEISTYO);
         assertTrue(matkija.teeSiirto() == Siirto.YHTEISTYO);
-        matkija.vastaanotaSiirto(Siirto.PETOS);
+        matkija.maaritaSeuraavaSiirto(Siirto.PETOS);
         assertTrue(matkija.teeSiirto() == Siirto.PETOS);
-        matkija.vastaanotaSiirto(Siirto.YHTEISTYO);
+        matkija.maaritaSeuraavaSiirto(Siirto.YHTEISTYO);
         assertTrue(matkija.teeSiirto() == Siirto.YHTEISTYO);
     }
 }

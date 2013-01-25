@@ -7,7 +7,7 @@ package tekoalyt;
 import tiralabra.Siirto;
 
 /**
- *
+ * Teko"äly", joka tekee aina yhteistyötä.
  * @author lvapaaka
  */
 public class Hyvis extends AI {
@@ -17,6 +17,10 @@ public class Hyvis extends AI {
     }
 
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
+    public void maaritaSeuraavaSiirto(Siirto siirto) {
+    }
+
+    @Override
+    public void palautaEnsimmainenSiirto() {
     }
 }
