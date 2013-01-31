@@ -42,12 +42,6 @@ public class Kokeilija extends AI {
         }
     }
 
-    @Override
-    public void palautaAlkuperainenTila() {
-        seuraavaSiirto = Siirto.YHTEISTYO;
-        uhrausSiirtoja = 0;
-    }
-
     /**
      * Yhteistyötilanteessa siirron päättävä metodi.
      *
@@ -86,5 +80,11 @@ public class Kokeilija extends AI {
         } else {
             return Siirto.PETOS;
         }
+    }
+
+    @Override
+    public void palautaAlkuperainenTila() {
+        seuraavaSiirto = Siirto.YHTEISTYO;
+        uhrausSiirtoja = 0;
     }
 }

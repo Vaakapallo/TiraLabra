@@ -5,6 +5,7 @@
 package tiralabra;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import tekoalyt.AI;
@@ -19,7 +20,8 @@ public class Logiikka {
     /**
      * Tekoalyt sisältävä lista.
      */
-    private List<AI> tekoalyt;
+    private AI[] tekoalyt;
+    private int tekoalytIndeksi;
     /**
      * Jaettava palkinto molempien pelaajien yhteistyöstä.
      */
@@ -37,7 +39,8 @@ public class Logiikka {
      * Luokan konstruktori, joka alustaa listan.
      */
     public Logiikka() {
-        tekoalyt = new ArrayList();
+        tekoalyt = new AI[11];
+        tekoalytIndeksi = 0;
     }
 
     /**
@@ -46,7 +49,8 @@ public class Logiikka {
      * @param ai Lisättävä tekoäly
      */
     public void lisaaTekoaly(AI ai) {
-        tekoalyt.add(ai);
+        tekoalyt[tekoalytIndeksi] = ai;
+        tekoalytIndeksi++;
     }
 
     /**
@@ -102,11 +106,11 @@ public class Logiikka {
      * Jokaisen listan tekoälyn toisiaan vastaan peluuttava metodi.
      */
     public void peluutaKaikkia() {
-        for (AI ai1 : tekoalyt) {
-            for (AI ai2 : tekoalyt) {
-                pelaaKierroksia(100, ai1, ai2);
-                ai1.palautaAlkuperainenTila();
-                ai2.palautaAlkuperainenTila();
+        for (int i = 0; i < tekoalytIndeksi; i++) {
+            for (int j = i + 1; j < tekoalytIndeksi; j++) {
+                pelaaKierroksia(100, tekoalyt[i], tekoalyt[j]);
+                tekoalyt[i].palautaAlkuperainenTila();
+                tekoalyt[j].palautaAlkuperainenTila();
             }
         }
         printtaaTulokset();
@@ -116,9 +120,8 @@ public class Logiikka {
      * Tulokset järjestävä ja printtaava metodi.
      */
     private void printtaaTulokset() {
-        Collections.sort(tekoalyt);
-        for (AI ai : tekoalyt) {
-            System.out.println(ai.getNimi() + ":n pisteet = " + ai.getPisteet());
+        for (int i = 0; i < tekoalytIndeksi; i++) {
+            System.out.println(tekoalyt[i].getNimi() + ":n pisteet = " + tekoalyt[i].getPisteet());
         }
     }
 }

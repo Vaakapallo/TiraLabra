@@ -16,6 +16,7 @@ public class Epailija extends AI {
 
     /**
      * Jos tekoälylle ollaan ystävällinen, se tekee yhteistyötä loppukierroksen.
+     * 
      * @param siirto 
      */
     @Override

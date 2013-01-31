@@ -108,4 +108,10 @@ public class TekoalyTest {
         laskija.vastaanotaSiirto(Siirto.YHTEISTYO);
         assertTrue(laskija.teeSiirto() == Siirto.YHTEISTYO);
     }
+    
+    @Test
+    public void kokeilijaKokeilee(){
+        Kokeilija kokeilija = new Kokeilija();
+        
+    }
 }
