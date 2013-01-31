@@ -49,15 +49,15 @@ public class TTDTekoalyTest {
         assertNotNull(tekoaly.teeSiirto());
     }
 
-    @Test
-    public void tekoalyParjaaHyvikselle() {
-        assertTrue(pelaaJaVertaa(new Hyvis()));
-    }
-
     private boolean pelaaJaVertaa(AI toinen) {
         TTDtekoaly tekoaly = new TTDtekoaly();
         log.pelaaKierroksia(100, tekoaly, toinen);
         return (tekoaly.getPisteet() <= toinen.getPisteet() + 10);
+    }
+
+    @Test
+    public void tekoalyParjaaHyvikselle() {
+        assertTrue(pelaaJaVertaa(new Hyvis()));
     }
 
     @Test

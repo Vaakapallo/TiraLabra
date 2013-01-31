@@ -77,5 +77,16 @@ public class LogiikkaTest {
         log.pelaaKierroksia(-50, h, h);
         assertEquals(0, h.getPisteet());
     }
-        
+
+    @Test
+    public void lisatytTekoalytPelaavat() {
+        Logiikka log2 = new Logiikka();
+        Hyvis hyvis = new Hyvis();
+        Matkija matkija = new Matkija();
+        log2.lisaaTekoaly(hyvis);
+        log2.lisaaTekoaly(matkija);
+        log2.peluutaKaikkia();
+        assertTrue(hyvis.getPisteet() > 0);
+        assertTrue(matkija.getPisteet() > 0);
+    }
 }
