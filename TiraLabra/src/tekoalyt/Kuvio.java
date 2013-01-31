@@ -38,7 +38,7 @@ public class Kuvio extends AI {
     }
 
     @Override
-    public void palautaEnsimmainenSiirto() {
+    public void palautaAlkuperainenTila() {
         seuraavaSiirto = Siirto.YHTEISTYO;
         laskuri = 1;
     }

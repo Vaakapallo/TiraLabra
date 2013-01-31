@@ -22,6 +22,6 @@ public class Pahis extends AI {
     }
 
     @Override
-    public void palautaEnsimmainenSiirto() {
+    public void palautaAlkuperainenTila() {
     }
 }

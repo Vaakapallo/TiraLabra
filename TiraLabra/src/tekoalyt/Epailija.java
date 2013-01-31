@@ -26,7 +26,7 @@ public class Epailija extends AI {
     }
 
     @Override
-    public void palautaEnsimmainenSiirto() {
+    public void palautaAlkuperainenTila() {
         seuraavaSiirto = Siirto.PETOS;
     }
 }

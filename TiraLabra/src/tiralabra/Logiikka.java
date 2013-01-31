@@ -105,8 +105,8 @@ public class Logiikka {
         for (AI ai1 : tekoalyt) {
             for (AI ai2 : tekoalyt) {
                 pelaaKierroksia(100, ai1, ai2);
-                ai1.palautaEnsimmainenSiirto();
-                ai2.palautaEnsimmainenSiirto();
+                ai1.palautaAlkuperainenTila();
+                ai2.palautaAlkuperainenTila();
             }
         }
         printtaaTulokset();

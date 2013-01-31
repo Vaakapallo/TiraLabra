@@ -86,5 +86,5 @@ public abstract class AI implements Comparable<AI> {
     /**
      * Palauttaa tekoälyn alkuperäiseen tilanteeseen.
      */
-    public abstract void palautaEnsimmainenSiirto();
+    public abstract void palautaAlkuperainenTila();
 }

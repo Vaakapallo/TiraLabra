@@ -31,7 +31,7 @@ public class Kostaja extends AI {
     }
 
     @Override
-    public void palautaEnsimmainenSiirto() {
+    public void palautaAlkuperainenTila() {
         seuraavaSiirto = Siirto.YHTEISTYO;
     }
 }

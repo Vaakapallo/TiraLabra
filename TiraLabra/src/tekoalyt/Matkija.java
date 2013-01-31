@@ -27,7 +27,7 @@ public class Matkija extends AI {
     }
 
     @Override
-    public void palautaEnsimmainenSiirto() {
+    public void palautaAlkuperainenTila() {
         seuraavaSiirto = Siirto.YHTEISTYO;
     }
 }

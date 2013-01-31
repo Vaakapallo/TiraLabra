@@ -98,4 +98,14 @@ public class TekoalyTest {
         assertTrue(kuvio.teeSiirto() == Siirto.PETOS);
         kuvio.vastaanotaSiirto(Siirto.PETOS);
     }
+
+    @Test
+    public void laskijaLaskeeOikein() {
+        Laskija laskija = new Laskija(0);
+        assertTrue(laskija.teeSiirto() == Siirto.YHTEISTYO);
+        laskija.vastaanotaSiirto(Siirto.PETOS);
+        assertTrue(laskija.teeSiirto() == Siirto.PETOS);
+        laskija.vastaanotaSiirto(Siirto.YHTEISTYO);
+        assertTrue(laskija.teeSiirto() == Siirto.YHTEISTYO);
+    }
 }

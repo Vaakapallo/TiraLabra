@@ -18,12 +18,17 @@ public class TiraLabra {
     public static void main(String[] args) {
         Logiikka log = new Logiikka();
         log.lisaaTekoaly(new Hyvis());
+        log.lisaaTekoaly(new Kokeilija());
         log.lisaaTekoaly(new Pahis());
-        log.lisaaTekoaly(new Satunnainen());
+//        log.lisaaTekoaly(new Satunnainen());
         log.lisaaTekoaly(new Matkija());
         log.lisaaTekoaly(new Kostaja());
         log.lisaaTekoaly(new Kuvio());
         log.lisaaTekoaly(new Epailija());
+        log.lisaaTekoaly(new Laskija(-5));
+        log.lisaaTekoaly(new Laskija(0));
+        log.lisaaTekoaly(new Laskija(5));
+        log.lisaaTekoaly(new Laskija(10));
         log.peluutaKaikkia();
     }
 }

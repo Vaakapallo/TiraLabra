@@ -10,34 +10,73 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import tekoalyt.*;
+import tekoalyt.TTDtekoaly;
+import tiralabra.Logiikka;
+import tiralabra.Siirto;
 
 /**
+ * Parasta (toivottavasti) tekoälyä testaavat testiluokka.
  *
  * @author lvapaaka
  */
 public class TTDTekoalyTest {
-    
-    public TTDTekoalyTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+
+    private Logiikka log;
+
     @Before
     public void setUp() {
+        log = new Logiikka();
     }
-    
-    @After
-    public void tearDown() {
+
+    @Test
+    public void tekoalySaaNimenLuodessa() {
+        TTDtekoaly tekoaly = new TTDtekoaly();
+        assertTrue("TTDtekoaly".equals(tekoaly.getNimi()));
     }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+
+    @Test
+    public void tekoalySaaSiirronLuodessa() {
+        TTDtekoaly tekoaly = new TTDtekoaly();
+        assertTrue(tekoaly.teeSiirto() == Siirto.YHTEISTYO);
+    }
+
+    @Test
+    public void tekoalyTekeeMontaSiirtoaPerakkain() {
+        TTDtekoaly tekoaly = new TTDtekoaly();
+        assertTrue(tekoaly.teeSiirto() == Siirto.YHTEISTYO);
+        tekoaly.vastaanotaSiirto(Siirto.PETOS);
+        assertNotNull(tekoaly.teeSiirto());
+    }
+
+    @Test
+    public void tekoalyParjaaHyvikselle() {
+        assertTrue(pelaaJaVertaa(new Hyvis()));
+    }
+
+    private boolean pelaaJaVertaa(AI toinen) {
+        TTDtekoaly tekoaly = new TTDtekoaly();
+        log.pelaaKierroksia(100, tekoaly, toinen);
+        return (tekoaly.getPisteet() <= toinen.getPisteet() + 10);
+    }
+
+    @Test
+    public void tekoalyParjaaPahikselle() {
+        assertTrue(pelaaJaVertaa(new Pahis()));
+    }
+
+    @Test
+    public void tekoalyParjaaKiltilleLaskijalle() {
+        assertTrue(pelaaJaVertaa(new Laskija(10)));
+    }
+
+    @Test
+    public void tekoalyParjaaPahalleLaskijalle() {
+        assertTrue(pelaaJaVertaa(new Laskija(-10)));
+    }
+
+    @Test
+    public void tekoalyParjaaLaskijalle() {
+        assertTrue(pelaaJaVertaa(new Laskija(10)));
+    }
 }
