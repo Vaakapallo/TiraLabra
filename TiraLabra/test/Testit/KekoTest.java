@@ -4,6 +4,7 @@
  */
 package Testit;
 
+import java.util.Random;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -55,6 +56,11 @@ public class KekoTest {
         MinimiKeko keko = new MinimiKeko();
         keko.lisaaKekoon(5);
         keko.lisaaKekoon(3);
+        keko.lisaaKekoon(12);
+        keko.lisaaKekoon(14);
+        keko.lisaaKekoon(16);
+        keko.lisaaKekoon(18);
+        keko.lisaaKekoon(19);
         assertEquals(3, keko.poistaPieninKeosta());
     }
 
@@ -66,5 +72,38 @@ public class KekoTest {
         assertEquals(keko.getKeonKoko(), 2);
         keko.poistaPieninKeosta();
         assertEquals(keko.getKeonKoko(), 1);
+    }
+
+    @Test
+    public void keonSuorituskykyLisays() {
+        lisaaKekoonJaOtaAika(10);
+        lisaaKekoonJaOtaAika(100);
+        lisaaKekoonJaOtaAika(1000);
+        lisaaKekoonJaOtaAika(10000);
+    }
+
+    @Test
+    public void poista1000keosta() {
+        MinimiKeko keko = new MinimiKeko(5000);
+        Random random = new Random();
+        for (int i = 0; i < 5000; i++) {
+            keko.lisaaKekoon(random.nextInt(1000));
+        }
+        long alkuaika = System.nanoTime();
+        for (int i = 0; i < 1000; i++) {
+            keko.poistaPieninKeosta();
+        }
+        System.out.println("Kekopoisto (1000): " + (System.nanoTime() - alkuaika));
+    }
+
+    private long lisaaKekoonJaOtaAika(int montako) {
+        MinimiKeko keko = new MinimiKeko(montako);
+        long alkuaika = System.nanoTime();
+        Random random = new Random();
+        for (int i = 0; i < montako; i++) {
+            keko.lisaaKekoon(random.nextInt(1000));
+        }
+        System.out.println("kekolisäys (" + montako + "): " + (System.nanoTime() - alkuaika));
+        return (System.nanoTime() - alkuaika);
     }
 }

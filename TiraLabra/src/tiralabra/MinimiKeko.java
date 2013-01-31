@@ -80,7 +80,7 @@ public class MinimiKeko {
         return min;
     }
 
-    private void vaihda(int indeksi1, int indeksi2) {
+    public void vaihda(int indeksi1, int indeksi2) {
         int apu = keko[indeksi1];
         keko[indeksi1] = keko[indeksi2];
         keko[indeksi2] = apu;
@@ -100,5 +100,13 @@ public class MinimiKeko {
 
     public int getKeonKoko() {
         return keonKoko;
+    }
+
+    public void pienennaKekoa() {
+        keonKoko--;
+    }
+
+    public int[] palautaKeko() {
+        return keko;
     }
 }

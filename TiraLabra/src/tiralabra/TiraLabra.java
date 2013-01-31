@@ -44,5 +44,11 @@ public class TiraLabra {
         keko.lisaaKekoon(20);
         System.out.println(keko.printtaaKeko());
 
+        int[] jarjesta = {5, 4, 3332, 223, 414, 8, 12, 23, 1, 12, 11};
+        Jarjestaja jarjestaja = new Jarjestaja(jarjesta);
+        int[] jarjestetty = jarjestaja.kekoJarjestaminen();
+        for (int i = 0; i < jarjestetty.length; i++) {
+            System.out.println(jarjestetty[i]);
+        }
     }
 }
