@@ -65,6 +65,25 @@ public class KekoTest {
     }
 
     @Test
+    public void kekoonLisatytArvotOvatJarjestyksessa() {
+        MinimiKeko keko = new MinimiKeko();
+        keko.lisaaKekoon(9);
+        keko.lisaaKekoon(5);
+        keko.lisaaKekoon(8);
+        keko.lisaaKekoon(3);
+        keko.lisaaKekoon(10);
+        keko.lisaaKekoon(1);
+        keko.lisaaKekoon(12);
+        assertEquals(1, keko.poistaPieninKeosta());
+        assertEquals(3, keko.poistaPieninKeosta());
+        assertEquals(5, keko.poistaPieninKeosta());
+        assertEquals(8, keko.poistaPieninKeosta());
+        assertEquals(9, keko.poistaPieninKeosta());
+        assertEquals(10, keko.poistaPieninKeosta());
+        assertEquals(12, keko.poistaPieninKeosta());
+    }
+
+    @Test
     public void poistaPieninPienentaaKekoa() {
         MinimiKeko keko = new MinimiKeko();
         keko.lisaaKekoon(5);

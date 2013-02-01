@@ -19,16 +19,24 @@ public class Jarjestaja {
         this.jarjestettava = jarjestettava;
     }
 
+    /**
+     * Keon minimikeon avulla järjestävä metodi.
+     * 
+     * Ei ihan Tiran mukainen, saattaa olla tehoton. Toimii kuitenkin.
+     * @return 
+     */
     public int[] kekoJarjestaminen() {
         kasaaKeko();
-        for (int i = jarjestettava.length; i > 1; i--) {
-            keko.vaihda(1, i);
-            keko.pienennaKekoa();
-            keko.keoista(1);
+        int[] jarjestyksessa = new int[jarjestettava.length];
+        for (int i = 0; i < jarjestettava.length; i++) {
+            jarjestyksessa[i] = keko.poistaPieninKeosta();
         }
-        return keko.palautaKeko();
+        return jarjestyksessa;
     }
 
+    /**
+     * Metodi, joka lisää kekoon kaikki järjestettävän taulukon luvut.
+     */
     private void kasaaKeko() {
         for (int i = 0; i < jarjestettava.length; i++) {
             keko.lisaaKekoon(jarjestettava[i]);

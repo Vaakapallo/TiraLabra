@@ -39,7 +39,7 @@ public class Logiikka {
      * Luokan konstruktori, joka alustaa listan.
      */
     public Logiikka() {
-        tekoalyt = new AI[11];
+        tekoalyt = new AI[13];
         tekoalytIndeksi = 0;
     }
 

@@ -27,18 +27,40 @@ public class MinimiKeko {
         keonKoko = 0;
     }
 
+    /**
+     * Keon jäsenen vanhemman palauttava metodi
+     *
+     * @param i keon jäsenen indeksi
+     * @return
+     */
     public int vanhempi(int i) {
         return i / 2;
     }
 
+    /**
+     * Keon jäsenen vasemman lapsen palauttava metodi
+     *
+     * @param i keon jäsenen indeksi
+     * @return
+     */
     public int vasen(int i) {
         return 2 * i;
     }
 
+    /**
+     * Keon jäsenen oikean lapsen palauttava metodi.
+     *
+     * @param i
+     * @return
+     */
     public int oikea(int i) {
         return 2 * i + 1;
     }
 
+    /**
+     * Toiselta nimeltään heapify, kekoa ylläpitävä metodi.
+     * @param i 
+     */
     public void keoista(int i) {
         int vasen = vasen(i);
         int oikea = oikea(i);
@@ -58,10 +80,18 @@ public class MinimiKeko {
         }
     }
 
+    /**
+     * Keon pienimmän arvon palauttava metodi.
+     * @return 
+     */
     public int minimi() {
         return keko[1];
     }
 
+    /**
+     * Kekoon oikealle paikalleen arvon lisäävä metodi.
+     * @param k 
+     */
     public void lisaaKekoon(int k) {
         keonKoko++;
         int i = keonKoko;
@@ -72,6 +102,10 @@ public class MinimiKeko {
         keko[i] = k;
     }
 
+    /**
+     * Keon pienimmän arvon poistava ja palauttava metodi,
+     * @return 
+     */
     public int poistaPieninKeosta() {
         int min = keko[1];
         keko[1] = keko[keonKoko];
@@ -80,12 +114,22 @@ public class MinimiKeko {
         return min;
     }
 
+    /**
+     * Kahden keon jäsenen paikkaa vaihtava metodi.
+     * 
+     * @param indeksi1
+     * @param indeksi2 
+     */
     public void vaihda(int indeksi1, int indeksi2) {
         int apu = keko[indeksi1];
         keko[indeksi1] = keko[indeksi2];
         keko[indeksi2] = apu;
     }
 
+    /**
+     * Keon karkeasti tulostava metodi.
+     * @return 
+     */
     public String printtaaKeko() {
         String palautettava = "";
         for (int i = 1; i < keko.length; i++) {
@@ -106,7 +150,7 @@ public class MinimiKeko {
         keonKoko--;
     }
 
-    public int[] palautaKeko() {
+    public int[] getKeko() {
         return keko;
     }
 }

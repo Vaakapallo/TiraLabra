@@ -25,11 +25,13 @@ public class TiraLabra {
         log.lisaaTekoaly(new Kostaja());
         log.lisaaTekoaly(new Kuvio());
         log.lisaaTekoaly(new Epailija());
+        log.lisaaTekoaly(new Laskija(-10));
         log.lisaaTekoaly(new Laskija(-5));
         log.lisaaTekoaly(new Laskija(0));
         log.lisaaTekoaly(new Laskija(5));
         log.lisaaTekoaly(new Laskija(10));
-//        log.peluutaKaikkia();
+        log.lisaaTekoaly(new Laskija(15));
+        log.peluutaKaikkia();
 
 
         MinimiKeko keko = new MinimiKeko();
