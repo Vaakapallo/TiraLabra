@@ -4,26 +4,21 @@
  */
 package tiralabra;
 
+import tekoalyt.AI;
+
 /**
- * Minimikeko heap-sorttia varten.
  *
  * @author lvapaaka
  */
-public class MinimiKeko{
+public class TekoalyKeko{
 
-    private int[] keko;
+    private AI[] keko;
     private int taulukonPituus;
     private int keonKoko;
 
-    public MinimiKeko(int pituus) {
+    public TekoalyKeko(int pituus) {
         taulukonPituus = pituus + 1;
-        this.keko = new int[taulukonPituus];
-        keonKoko = 0;
-    }
-
-    public MinimiKeko() {
-        taulukonPituus = 10 + 1;
-        this.keko = new int[taulukonPituus];
+        this.keko = new AI[taulukonPituus];
         keonKoko = 0;
     }
 
@@ -59,43 +54,46 @@ public class MinimiKeko{
 
     /**
      * Toiselta nimeltään heapify, kekoa ylläpitävä metodi.
-     * @param i 
+     *
+     * @param i
      */
     public void keoista(int i) {
         int vasen = vasen(i);
         int oikea = oikea(i);
         int pienin;
         if (oikea <= keonKoko) {
-            if (keko[vasen] < keko[oikea]) {
+            if (keko[vasen].getPisteet() < keko[oikea].getPisteet()) {
                 pienin = vasen;
             } else {
                 pienin = oikea;
             }
-            if (keko[i] > keko[pienin]) {
+            if (keko[i].getPisteet() > keko[pienin].getPisteet()) {
                 vaihda(i, pienin);
                 keoista(pienin);
             }
-        } else if (vasen == keonKoko && keko[i] > keko[vasen]) {
+        } else if (vasen == keonKoko && keko[i].getPisteet() > keko[vasen].getPisteet()) {
             vaihda(i, vasen);
         }
     }
 
     /**
      * Keon pienimmän arvon palauttava metodi.
-     * @return 
+     *
+     * @return
      */
     public int minimi() {
-        return keko[1];
+        return keko[1].getPisteet();
     }
 
     /**
      * Kekoon oikealle paikalleen arvon lisäävä metodi.
-     * @param k 
+     *
+     * @param k
      */
-    public void lisaaKekoon(int k) {
+    public void lisaaKekoon(AI k) {
         keonKoko++;
         int i = keonKoko;
-        while (i > 1 && keko[vanhempi(i)] > k) {
+        while (i > 1 && keko[vanhempi(i)].getPisteet() > k.getPisteet()) {
             keko[i] = keko[vanhempi(i)];
             i = vanhempi(i);
         }
@@ -104,10 +102,11 @@ public class MinimiKeko{
 
     /**
      * Keon pienimmän arvon poistava ja palauttava metodi,
-     * @return 
+     *
+     * @return
      */
-    public int poistaPieninKeosta() {
-        int min = keko[1];
+    public AI poistaPieninKeosta() {
+        AI min = keko[1];
         keko[1] = keko[keonKoko];
         keonKoko--;
         keoista(1);
@@ -116,19 +115,20 @@ public class MinimiKeko{
 
     /**
      * Kahden keon jäsenen paikkaa vaihtava metodi.
-     * 
+     *
      * @param indeksi1
-     * @param indeksi2 
+     * @param indeksi2
      */
     public void vaihda(int indeksi1, int indeksi2) {
-        int apu = keko[indeksi1];
+        AI apu = keko[indeksi1];
         keko[indeksi1] = keko[indeksi2];
         keko[indeksi2] = apu;
     }
 
     /**
      * Keon karkeasti tulostava metodi.
-     * @return 
+     *
+     * @return
      */
     public String printtaaKeko() {
         String palautettava = "";
@@ -138,8 +138,8 @@ public class MinimiKeko{
         return palautettava;
     }
 
-    public int palautaArvoIndeksista(int i) {
-        return keko[i];
+    public int palautaTekoalynPisteetIndeksista(int i) {
+        return keko[i].getPisteet();
     }
 
     public int getKeonKoko() {
@@ -150,7 +150,7 @@ public class MinimiKeko{
         keonKoko--;
     }
 
-    public int[] getKeko() {
+    public AI[] getKeko() {
         return keko;
     }
 }

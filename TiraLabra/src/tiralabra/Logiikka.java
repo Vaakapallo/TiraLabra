@@ -113,6 +113,8 @@ public class Logiikka {
                 tekoalyt[j].palautaAlkuperainenTila();
             }
         }
+        Jarjestaja jarjestaja = new Jarjestaja(tekoalyt);
+        tekoalyt = jarjestaja.kekoJarjestaminen();
         printtaaTulokset();
     }
 

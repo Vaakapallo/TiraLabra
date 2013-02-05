@@ -4,6 +4,8 @@
  */
 package tiralabra;
 
+import tekoalyt.AI;
+
 /**
  * Heap-sort järjestysalgoritmi.
  *
@@ -11,23 +13,29 @@ package tiralabra;
  */
 public class Jarjestaja {
 
-    private MinimiKeko keko;
-    private int[] jarjestettava;
+    private TekoalyKeko keko;
+    private AI[] jarjestettava;
 
-    public Jarjestaja(int[] jarjestettava) {
-        keko = new MinimiKeko(jarjestettava.length);
+//    public Jarjestaja(int[] jarjestettava) {
+//        keko = new MinimiKeko(jarjestettava.length);
+//        this.jarjestettava = jarjestettava;
+//    }
+    public Jarjestaja(AI[] jarjestettava) {
+        keko = new TekoalyKeko(jarjestettava.length);
         this.jarjestettava = jarjestettava;
     }
 
     /**
      * Keon minimikeon avulla järjestävä metodi.
-     * 
-     * Ei ihan Tiran mukainen, saattaa olla tehoton. Toimii kuitenkin.
-     * @return 
+     *
+     * Ei ihan Tiran mukainen, saattaa olla tehoton. Pitää miettiä lisää. Toimii
+     * kuitenkin.
+     *
+     * @return
      */
-    public int[] kekoJarjestaminen() {
+    public AI[] kekoJarjestaminen() {
         kasaaKeko();
-        int[] jarjestyksessa = new int[jarjestettava.length];
+        AI[] jarjestyksessa = new AI[jarjestettava.length];
         for (int i = 0; i < jarjestettava.length; i++) {
             jarjestyksessa[i] = keko.poistaPieninKeosta();
         }
