@@ -86,9 +86,9 @@ public class TekoalyKeko{
     }
 
     /**
-     * Kekoon oikealle paikalleen arvon lisäävä metodi.
+     * Kekoon oikealle paikalleen tekoälyn lisäävä metodi.
      *
-     * @param k
+     * @param k lisättävä tekoäly
      */
     public void lisaaKekoon(AI k) {
         keonKoko++;
@@ -101,7 +101,7 @@ public class TekoalyKeko{
     }
 
     /**
-     * Keon pienimmän arvon poistava ja palauttava metodi,
+     * Keon pienimmän pistemäärän omaavan tekoälyn poistava ja palauttava metodi,
      *
      * @return
      */

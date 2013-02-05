@@ -4,6 +4,7 @@
  */
 package tiralabra;
 
+import tekoalyt.Ihminen;
 import tekoalyt.*;
 
 /**
@@ -32,5 +33,8 @@ public class TiraLabra {
         log.lisaaTekoaly(new Laskija(10));
         log.lisaaTekoaly(new Laskija(15));
         log.peluutaKaikkia();
+
+
+        log.pelaaKierroksia(5, new Ihminen(), new Matkija());
     }
 }
