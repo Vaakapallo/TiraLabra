@@ -22,20 +22,25 @@ public class TiraLabra {
         log.lisaaTekoaly(new Kokeilija());
         log.lisaaTekoaly(new Pahis());
 //        log.lisaaTekoaly(new Satunnainen());
+        for (int i = 0; i < 10; i++) {
+            log.lisaaTekoaly(new Laskija(i));
+        }
         log.lisaaTekoaly(new Matkija());
         log.lisaaTekoaly(new Kostaja());
         log.lisaaTekoaly(new Kuvio());
         log.lisaaTekoaly(new Epailija());
+        
         log.lisaaTekoaly(new Laskija(-10));
         log.lisaaTekoaly(new Laskija(-5));
-        log.lisaaTekoaly(new Laskija(0));
-        log.lisaaTekoaly(new Laskija(5));
-        log.lisaaTekoaly(new Laskija(10));
-        log.lisaaTekoaly(new Laskija(15));
-        log.peluutaKaikkia();
+//        log.lisaaTekoaly(new Laskija(0));
+//        log.lisaaTekoaly(new Laskija(5));
+//        log.lisaaTekoaly(new Laskija(10));
+//        log.lisaaTekoaly(new Laskija(15));
+//        log.lisaaTekoaly(new Laskija(1));
+        log.peluutaKaikkia(100);
 
-        Ihminen ihminen = new Ihminen();
-        log.pelaaKierroksia(5, ihminen, new Matkija());
-        log.pelaaKierroksia(5, ihminen, new Hyvis());
+//        Ihminen ihminen = new Ihminen();
+//        log.pelaaKierroksia(5, ihminen, new Matkija());
+//        log.pelaaKierroksia(5, ihminen, new Hyvis());
     }
 }

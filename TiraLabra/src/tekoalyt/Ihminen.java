@@ -24,7 +24,6 @@ public class Ihminen extends AI {
         System.out.println("Pelataan Vangin Dilemmaa");
         System.out.println("Y:t ovat yhteistyötä");
         System.out.println("P:t ovat petoksia");
-        vastaanotaSiirto(null);
     }
 
     @Override
@@ -43,8 +42,18 @@ public class Ihminen extends AI {
     @Override
     public void palautaAlkuperainenTila() {
         System.out.println("Kierros päättyi!");
+        System.out.println("Päätä ensi kierroksen ensimmäinen siirto:");
+        vastaanotaSiirto(null);
     }
 
+    /**
+     * Käyttäjän syötteestä siirron tulkitseva metodi.
+     * 
+     * Jos syötteessä on edes yksi "Y" tai "y", niin se tulkitaan yhteistyöksi.
+     * Yksikin "P" tai "p" tulkitaan petokseksi. Tasatilanteessa yhteistyö voittaa.
+     * 
+     * @return 
+     */
     private Siirto lueSiirtoKayttajalta() {
         while (true) {
             String valinta = lukija.nextLine();

@@ -75,6 +75,11 @@ public abstract class AI implements Comparable<AI> {
     public int compareTo(AI o) {
         return this.pisteet - o.getPisteet();
     }
+    
+    @Override
+    public String toString(){
+        return nimi;
+    }
 
     /**
      * Tekoälyjen perustoiminto, seuraavan siirron määritys vastapuolen edellisen siirron perusteella.

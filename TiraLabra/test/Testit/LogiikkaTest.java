@@ -85,7 +85,7 @@ public class LogiikkaTest {
         Matkija matkija = new Matkija();
         log2.lisaaTekoaly(hyvis);
         log2.lisaaTekoaly(matkija);
-        log2.peluutaKaikkia();
+        log2.peluutaKaikkia(100);
         assertTrue(hyvis.getPisteet() > 0);
         assertTrue(matkija.getPisteet() > 0);
     }

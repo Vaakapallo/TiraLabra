@@ -4,10 +4,6 @@
  */
 package tiralabra;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import tekoalyt.AI;
 
 /**
@@ -39,7 +35,7 @@ public class Logiikka {
      * Luokan konstruktori, joka alustaa listan.
      */
     public Logiikka() {
-        tekoalyt = new AI[13];
+        tekoalyt = new AI[100];
         tekoalytIndeksi = 0;
     }
 
@@ -107,10 +103,12 @@ public class Logiikka {
     /**
      * Jokaisen listan tekoälyn toisiaan vastaan peluuttava metodi.
      */
-    public void peluutaKaikkia() {
+    public void peluutaKaikkia(int kierroksia) {
+        pakkaaTekoalyt();
         for (int i = 0; i < tekoalytIndeksi; i++) {
             for (int j = i + 1; j < tekoalytIndeksi; j++) {
-                pelaaKierroksia(100, tekoalyt[i], tekoalyt[j]);
+//                System.out.println("Vastakkain: " + tekoalyt[i] + " ja " + tekoalyt[j]);
+                pelaaKierroksia(kierroksia, tekoalyt[i], tekoalyt[j]);
             }
         }
         Jarjestaja jarjestaja = new Jarjestaja(tekoalyt);
@@ -125,5 +123,13 @@ public class Logiikka {
         for (int i = 0; i < tekoalytIndeksi; i++) {
             System.out.println(tekoalyt[i].getNimi() + ":n pisteet = " + tekoalyt[i].getPisteet());
         }
+    }
+
+    private void pakkaaTekoalyt() {
+        AI[] uusiTekoalyt = new AI[tekoalytIndeksi];
+        for (int i = 0; i < tekoalytIndeksi; i++) {
+            uusiTekoalyt[i] = tekoalyt[i];
+        }
+        tekoalyt = uusiTekoalyt;
     }
 }
