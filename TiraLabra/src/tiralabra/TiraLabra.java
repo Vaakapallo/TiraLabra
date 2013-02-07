@@ -34,7 +34,8 @@ public class TiraLabra {
         log.lisaaTekoaly(new Laskija(15));
         log.peluutaKaikkia();
 
-
-        log.pelaaKierroksia(5, new Ihminen(), new Matkija());
+        Ihminen ihminen = new Ihminen();
+        log.pelaaKierroksia(5, ihminen, new Matkija());
+        log.pelaaKierroksia(5, ihminen, new Hyvis());
     }
 }

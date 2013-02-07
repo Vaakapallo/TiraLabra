@@ -5,7 +5,6 @@
 package tekoalyt;
 
 import java.util.Scanner;
-import tekoalyt.AI;
 import tiralabra.Siirto;
 
 /**
@@ -23,8 +22,8 @@ public class Ihminen extends AI {
 
     public void pelaa() {
         System.out.println("Pelataan Vangin Dilemmaa");
-        System.out.println("Y on yhteistyö");
-        System.out.println("P on petos");
+        System.out.println("Y:t ovat yhteistyötä");
+        System.out.println("P:t ovat petoksia");
         vastaanotaSiirto(null);
     }
 
@@ -37,15 +36,25 @@ public class Ihminen extends AI {
             System.out.println("Ensimmäinen kierros!");
         }
         System.out.println("Tee siirto:");
-        String valinta = lukija.nextLine();
-        if (valinta.equals("Y")) {
-            seuraavaSiirto = Siirto.YHTEISTYO;
-        } else {
-            seuraavaSiirto = Siirto.PETOS;
-        }
+        seuraavaSiirto = lueSiirtoKayttajalta();
+        System.out.println("Siirtosi oli " + seuraavaSiirto);
     }
 
     @Override
     public void palautaAlkuperainenTila() {
+        System.out.println("Kierros päättyi!");
+    }
+
+    private Siirto lueSiirtoKayttajalta() {
+        while (true) {
+            String valinta = lukija.nextLine();
+            if (valinta.matches("(?i).*Y.*")) {
+                return Siirto.YHTEISTYO;
+            } else if (valinta.matches("(?i).*P.*")) {
+                return Siirto.PETOS;
+            } else {
+                System.out.println("Epäkelpo siirto, yritä uudelleen:");
+            }
+        }
     }
 }

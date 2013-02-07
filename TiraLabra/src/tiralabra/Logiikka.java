@@ -64,6 +64,8 @@ public class Logiikka {
         for (int i = 0; i < maara; i++) {
             pelaaKierros(eka, toka);
         }
+        eka.palautaAlkuperainenTila();
+        toka.palautaAlkuperainenTila();
     }
 
     /**
@@ -109,8 +111,6 @@ public class Logiikka {
         for (int i = 0; i < tekoalytIndeksi; i++) {
             for (int j = i + 1; j < tekoalytIndeksi; j++) {
                 pelaaKierroksia(100, tekoalyt[i], tekoalyt[j]);
-                tekoalyt[i].palautaAlkuperainenTila();
-                tekoalyt[j].palautaAlkuperainenTila();
             }
         }
         Jarjestaja jarjestaja = new Jarjestaja(tekoalyt);
