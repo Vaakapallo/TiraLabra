@@ -14,7 +14,7 @@ import tiralabra.Siirto;
 public class Matkija extends AI {
 
     public Matkija() {
-        super("Matkija (Tit for Tat)", Siirto.YHTEISTYO);
+        super("Matkija", Siirto.YHTEISTYO);
     }
 
     /**

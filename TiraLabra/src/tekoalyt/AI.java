@@ -68,26 +68,28 @@ public abstract class AI implements Comparable<AI> {
 
     /**
      * Vertailumetodi, joka järjestää pienimmästä isoimpaan.
+     *
      * @param o toinen AI
-     * @return 
+     * @return
      */
     @Override
     public int compareTo(AI o) {
         return this.pisteet - o.getPisteet();
     }
-    
+
     @Override
-    public String toString(){
-        return nimi;
+    public String toString() {
+        return nimi + "n pisteet: " + pisteet;
     }
 
     /**
-     * Tekoälyjen perustoiminto, seuraavan siirron määritys vastapuolen edellisen siirron perusteella.
+     * Tekoälyjen perustoiminto, seuraavan siirron määritys vastapuolen
+     * edellisen siirron perusteella.
      *
      * @param siirto Toisen pelaajan viime kierroksen siirto
      */
     public abstract void vastaanotaSiirto(Siirto siirto);
-    
+
     /**
      * Palauttaa tekoälyn alkuperäiseen tilanteeseen.
      */

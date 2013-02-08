@@ -8,6 +8,9 @@ import java.util.Scanner;
 import tiralabra.Siirto;
 
 /**
+ * "Tekoäly", joka on täysin ihmisen ohjaama.
+ *
+ *
  *
  * @author lvapaaka
  */
@@ -20,39 +23,42 @@ public class Ihminen extends AI {
         pelaa();
     }
 
+    /**
+     * Pelaajan ohjeet.
+     */
     public void pelaa() {
         System.out.println("Pelataan Vangin Dilemmaa");
         System.out.println("Y:t ovat yhteistyötä");
         System.out.println("P:t ovat petoksia");
+        System.out.println("Tee ensimmäinen siirto");
+        seuraavaSiirto = lueSiirtoKayttajalta();
     }
 
     @Override
     public void vastaanotaSiirto(Siirto siirto) {
-        if (siirto != null) {
-            System.out.println("Vastustajan siirto oli: " + siirto);
-            System.out.println("Sinulla on " + super.getPisteet() + " pistettä");
-        } else {
-            System.out.println("Ensimmäinen kierros!");
-        }
+        System.out.println("Siirtosi oli " + seuraavaSiirto);
+        System.out.println("Vastustajan siirto oli: " + siirto);
+        System.out.println("Sinulla on " + super.getPisteet() + " pistettä");
         System.out.println("Tee siirto:");
         seuraavaSiirto = lueSiirtoKayttajalta();
-        System.out.println("Siirtosi oli " + seuraavaSiirto);
     }
 
     @Override
     public void palautaAlkuperainenTila() {
         System.out.println("Kierros päättyi!");
+        System.out.println("Pisteitä nyt: " + super.getPisteet());
         System.out.println("Päätä ensi kierroksen ensimmäinen siirto:");
-        vastaanotaSiirto(null);
+        seuraavaSiirto = lueSiirtoKayttajalta();
     }
 
     /**
      * Käyttäjän syötteestä siirron tulkitseva metodi.
-     * 
+     *
      * Jos syötteessä on edes yksi "Y" tai "y", niin se tulkitaan yhteistyöksi.
-     * Yksikin "P" tai "p" tulkitaan petokseksi. Tasatilanteessa yhteistyö voittaa.
-     * 
-     * @return 
+     * Yksikin "P" tai "p" tulkitaan petokseksi. Tasatilanteessa yhteistyö
+     * voittaa.
+     *
+     * @return
      */
     private Siirto lueSiirtoKayttajalta() {
         while (true) {

@@ -4,6 +4,7 @@
  */
 package tiralabra;
 
+import java.util.Collections;
 import tekoalyt.AI;
 
 /**
@@ -57,11 +58,12 @@ public class Logiikka {
      * @param toka Toinen tekoäly
      */
     public void pelaaKierroksia(int maara, AI eka, AI toka) {
-        for (int i = 0; i < maara; i++) {
+        for (int i = 0; i < maara - 1; i++) {
             pelaaKierros(eka, toka);
         }
-        eka.palautaAlkuperainenTila();
-        toka.palautaAlkuperainenTila();
+        if (maara > 0) {
+            pelaaViimeinenKierros(eka, toka);
+        }
     }
 
     /**
@@ -76,6 +78,14 @@ public class Logiikka {
         jaaPisteet(ensimmaisen, toisen, eka, toka);
         eka.vastaanotaSiirto(toisen);
         toka.vastaanotaSiirto(ensimmaisen);
+    }
+
+    private void pelaaViimeinenKierros(AI eka, AI toka) {
+        Siirto ensimmaisen = eka.teeSiirto();
+        Siirto toisen = toka.teeSiirto();
+        jaaPisteet(ensimmaisen, toisen, eka, toka);
+        eka.palautaAlkuperainenTila();
+        toka.palautaAlkuperainenTila();
     }
 
     /**
@@ -121,7 +131,7 @@ public class Logiikka {
      */
     private void printtaaTulokset() {
         for (int i = 0; i < tekoalytIndeksi; i++) {
-            System.out.println(tekoalyt[i].getNimi() + ":n pisteet = " + tekoalyt[i].getPisteet());
+            System.out.println(tekoalyt[i]);
         }
     }
 
