@@ -24,4 +24,9 @@ public class Pahis extends AI {
     @Override
     public void palautaAlkuperainenTila() {
     }
+    
+    @Override
+    public String toString() {
+        return "Pahiksen pisteet: " + super.getPisteet();
+    }
 }

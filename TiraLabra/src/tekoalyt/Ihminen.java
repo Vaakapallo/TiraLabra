@@ -72,4 +72,11 @@ public class Ihminen extends AI {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        return "Ihmisen pisteet: " + super.getPisteet();
+    }
+    
+    
 }

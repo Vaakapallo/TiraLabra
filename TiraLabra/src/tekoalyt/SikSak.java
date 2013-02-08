@@ -29,4 +29,9 @@ public class SikSak extends AI {
     public void palautaAlkuperainenTila() {
         seuraavaSiirto = Siirto.YHTEISTYO;
     }
+    
+    @Override
+    public String toString() {
+        return "Siksakin pisteet: " + super.getPisteet();
+    }
 }

@@ -8,6 +8,7 @@ import tiralabra.Siirto;
 
 /**
  * Teko"äly", joka tekee aina yhteistyötä.
+ *
  * @author lvapaaka
  */
 public class Hyvis extends AI {
@@ -22,5 +23,10 @@ public class Hyvis extends AI {
 
     @Override
     public void palautaAlkuperainenTila() {
+    }
+
+    @Override
+    public String toString() {
+        return "Hyviksen pisteet: " + super.getPisteet();
     }
 }

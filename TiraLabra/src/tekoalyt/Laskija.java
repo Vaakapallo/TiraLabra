@@ -62,4 +62,9 @@ public class Laskija extends AI {
             return Siirto.PETOS;
         }
     }
+    
+    @Override
+    public String toString() {
+        return "Laskija (Kiltteys " + alkuperainenKiltteys + "):n pisteet: " + super.getPisteet();
+    }
 }
