@@ -18,7 +18,7 @@ public class Hyvis extends AI {
     }
 
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
+    public void vastaanotaSiirto(Siirto vastustajanSiirto) {
     }
 
     @Override

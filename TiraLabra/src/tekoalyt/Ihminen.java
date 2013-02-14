@@ -33,9 +33,9 @@ public class Ihminen extends AI {
     }
 
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
+    public void vastaanotaSiirto(Siirto vastustajanSiirto) {
         System.out.println("Siirtosi oli " + seuraavaSiirto);
-        System.out.println("Vastustajan siirto oli: " + siirto);
+        System.out.println("Vastustajan siirto oli: " + vastustajanSiirto);
         System.out.println("Sinulla on " + super.getPisteet() + " pistettä");
         System.out.println("Tee siirto:");
         seuraavaSiirto = lueSiirtoKayttajalta();

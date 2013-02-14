@@ -86,9 +86,9 @@ public abstract class AI implements Comparable<AI> {
      * Tekoälyjen perustoiminto, seuraavan siirron määritys vastapuolen
      * edellisen siirron perusteella.
      *
-     * @param siirto Toisen pelaajan viime kierroksen siirto
+     * @param vastustajanSiirto Toisen pelaajan viime kierroksen siirto
      */
-    public abstract void vastaanotaSiirto(Siirto siirto);
+    public abstract void vastaanotaSiirto(Siirto vastustajanSiirto);
 
     /**
      * Palauttaa tekoälyn alkuperäiseen tilanteeseen.

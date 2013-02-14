@@ -33,11 +33,11 @@ public class Laskija extends AI {
 
     /**
      * Tekoälyn "hyvyyspisteitä" säätävä metodi.
-     * @param siirto Vastustajan viime kierroksen siirto
+     * @param vastustajanSiirto Vastustajan viime kierroksen siirto
      */
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
-        if (siirto == Siirto.PETOS) {
+    public void vastaanotaSiirto(Siirto vastustajanSiirto) {
+        if (vastustajanSiirto == Siirto.PETOS) {
             hyvyysPisteet--;
         } else {
             hyvyysPisteet++;

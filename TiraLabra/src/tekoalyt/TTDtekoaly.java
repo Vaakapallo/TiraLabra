@@ -19,8 +19,8 @@ public class TTDtekoaly extends AI {
     }
 
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
-        if (siirto == Siirto.PETOS) {
+    public void vastaanotaSiirto(Siirto vastustajanSiirto) {
+        if (vastustajanSiirto == Siirto.PETOS) {
             seuraavaSiirto = Siirto.PETOS;
         }
     }

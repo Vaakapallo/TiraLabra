@@ -29,13 +29,13 @@ public class Kokeilija extends AI {
     /**
      * Tekoälyn muistia päivittävä metodi.
      *
-     * @param siirto vastapuolen siirto
+     * @param vastustajanSiirto vastapuolen siirto
      */
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
+    public void vastaanotaSiirto(Siirto vastustajanSiirto) {
         Siirto kaksiSiirtoaSitten = edellinenSiirto;
         edellinenSiirto = seuraavaSiirto;
-        if (siirto == Siirto.YHTEISTYO) {
+        if (vastustajanSiirto == Siirto.YHTEISTYO) {
             seuraavaSiirto = reagoiYhteistyohon(kaksiSiirtoaSitten);
         } else {
             seuraavaSiirto = reagoiPetokseen(kaksiSiirtoaSitten);

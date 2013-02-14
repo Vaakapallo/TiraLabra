@@ -29,8 +29,8 @@ public class Opportunisti extends AI {
     }
 
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
-        seuraavaSiirto = paataSiirto(siirto);
+    public void vastaanotaSiirto(Siirto vastustajanSiirto) {
+        seuraavaSiirto = paataSiirto(vastustajanSiirto);
         siirtojaNyt++;
     }
 
@@ -51,11 +51,11 @@ public class Opportunisti extends AI {
      * Jos ei vielä ole saatu paljon miinuspisteitä, tehdään yhteistyötä. Jos pistemäärä
      * ylittää odotusarvon (molemmat tekevät yhteistyötä joka siirrolla), petetään.
      * 
-     * @param siirto Vastustajan siirto
+     * @param vastustajanSiirto Vastustajan siirto
      * @return Opportunistin oma siirto
      */
-    private Siirto paataSiirto(Siirto siirto) {
-        if (siirto == Siirto.YHTEISTYO) {
+    private Siirto paataSiirto(Siirto vastustajanSiirto) {
+        if (vastustajanSiirto == Siirto.YHTEISTYO) {
             if (siirtojaNyt == siirtojaKierroksessa - 1) {
                 return Siirto.PETOS;
             }

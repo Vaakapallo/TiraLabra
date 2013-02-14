@@ -19,11 +19,11 @@ public class Matkija extends AI {
 
     /**
      * Vastaanottaa siirron ja säätää sen tekoälyn seuraavaksi siirroksi.
-     * @param siirto Toisen pelaajan viime kierroksen siirto
+     * @param vastustajanSiirto Toisen pelaajan viime kierroksen siirto
      */
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
-        seuraavaSiirto = siirto;
+    public void vastaanotaSiirto(Siirto vastustajanSiirto) {
+        seuraavaSiirto = vastustajanSiirto;
     }
 
     @Override

@@ -21,11 +21,11 @@ public class Kostaja extends AI {
 
     /**
      * Jos tekoäly petetään, se pettää loppukierroksen.
-     * @param siirto 
+     * @param vastustajanSiirto 
      */
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
-        if (siirto == Siirto.PETOS) {
+    public void vastaanotaSiirto(Siirto vastustajanSiirto) {
+        if (vastustajanSiirto == Siirto.PETOS) {
             seuraavaSiirto = Siirto.PETOS;
         }
     }

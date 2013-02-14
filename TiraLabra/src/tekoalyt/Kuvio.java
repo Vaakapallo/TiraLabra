@@ -25,10 +25,10 @@ public class Kuvio extends AI {
 
     /**
      * Maarittaa siirtokuvion tämänhetkisen kohdan.
-     * @param siirto 
+     * @param vastustajanSiirto 
      */
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
+    public void vastaanotaSiirto(Siirto vastustajanSiirto) {
         laskuri++;
         if (laskuri % 3 == 0) {
             seuraavaSiirto = Siirto.PETOS;

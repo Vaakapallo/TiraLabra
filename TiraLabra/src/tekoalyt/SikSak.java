@@ -17,7 +17,7 @@ public class SikSak extends AI {
     }
 
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
+    public void vastaanotaSiirto(Siirto vastustajanSiirto) {
         if (seuraavaSiirto == Siirto.YHTEISTYO) {
             seuraavaSiirto = Siirto.PETOS;
         } else {

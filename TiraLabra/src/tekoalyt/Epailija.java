@@ -17,11 +17,11 @@ public class Epailija extends AI {
     /**
      * Jos tekoälylle ollaan ystävällinen, se tekee yhteistyötä loppukierroksen.
      * 
-     * @param siirto 
+     * @param vastustajanSiirto 
      */
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
-        if (siirto == Siirto.YHTEISTYO) {
+    public void vastaanotaSiirto(Siirto vastustajanSiirto) {
+        if (vastustajanSiirto == Siirto.YHTEISTYO) {
             seuraavaSiirto = Siirto.YHTEISTYO;
         }
     }

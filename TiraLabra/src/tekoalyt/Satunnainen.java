@@ -19,7 +19,7 @@ public class Satunnainen extends AI {
     }
 
     @Override
-    public void vastaanotaSiirto(Siirto siirto) {
+    public void vastaanotaSiirto(Siirto vastustajanSiirto) {
         seuraavaSiirto = satunnainenSiirto();
 //        System.out.println("Siirto = " + seuraavaSiirto);
     }
