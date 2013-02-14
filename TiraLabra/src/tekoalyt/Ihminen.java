@@ -10,8 +10,6 @@ import tiralabra.Siirto;
 /**
  * "Tekoäly", joka on täysin ihmisen ohjaama.
  *
- *
- *
  * @author lvapaaka
  */
 public class Ihminen extends AI {
@@ -77,6 +75,4 @@ public class Ihminen extends AI {
     public String toString() {
         return "Ihmisen pisteet: " + super.getPisteet();
     }
-    
-    
 }
