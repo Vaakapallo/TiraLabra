@@ -22,7 +22,7 @@ public class Kokeilija extends AI {
 
     public Kokeilija() {
         super("Kokeilija", Siirto.YHTEISTYO);
-        edellinenSiirto = Siirto.YHTEISTYO;
+        edellinenSiirto = null;
         uhrausSiirtoja = 0;
     }
 

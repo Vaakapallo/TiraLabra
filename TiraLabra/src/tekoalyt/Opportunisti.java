@@ -15,7 +15,7 @@ import tiralabra.Siirto;
 public class Opportunisti extends AI {
 
     private int pisteetKierroksenAlussa;
-    private int siirtojaNyt = 1;
+    private int siirtojaNyt = 0;
     /**
      * Muuttuja, johon lasketaan siirtojen määrä per kierros.
      *
@@ -44,21 +44,21 @@ public class Opportunisti extends AI {
 
     /**
      * Opportunistin siirron päättävä metodi.
-     * 
-     * Yhteistyön tapauksessa tehdään yhteistyötä, paitsi viimeisellä kierroksella,
-     * jolloin petetään aina.
-     * 
-     * Jos ei vielä ole saatu paljon miinuspisteitä, tehdään yhteistyötä. Jos pistemäärä
-     * ylittää odotusarvon (molemmat tekevät yhteistyötä joka siirrolla), petetään.
-     * 
+     *
+     * Yhteistyön tapauksessa tehdään yhteistyötä, paitsi viimeisellä
+     * kierroksella, jolloin petetään aina.
+     *
+     * Jos ei vielä ole saatu paljon miinuspisteitä, tehdään yhteistyötä. Jos
+     * kierroksella saadut pisteet ylittävät kierroksen odotusarvon (molemmat
+     * tekevät yhteistyötä joka siirrolla), petetään.
+     *
      * @param vastustajanSiirto Vastustajan siirto
      * @return Opportunistin oma siirto
      */
     private Siirto paataSiirto(Siirto vastustajanSiirto) {
-        if (vastustajanSiirto == Siirto.YHTEISTYO) {
-            if (siirtojaNyt == siirtojaKierroksessa - 1) {
-                return Siirto.PETOS;
-            }
+        if (siirtojaNyt == siirtojaKierroksessa - 1) {
+            return Siirto.PETOS;
+        } else if (vastustajanSiirto == Siirto.YHTEISTYO) {
             return Siirto.YHTEISTYO;
         } else if (super.getPisteet() - pisteetKierroksenAlussa < siirtojaKierroksessa) {
             return Siirto.YHTEISTYO;

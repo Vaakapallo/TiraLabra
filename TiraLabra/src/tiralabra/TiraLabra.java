@@ -37,8 +37,9 @@ public class TiraLabra {
 //        log.lisaaTekoaly(new Ihminen());
         log.peluutaKaikkia(100);
 
-//        Ihminen ihminen = new Ihminen();
-//        log.pelaaKierroksia(5, ihminen, new Matkija());
-//        log.pelaaKierroksia(5, ihminen, new Hyvis());
+        Ihminen ihminen = new Ihminen();
+        AI op = new Opportunisti();
+        log.pelaaKierroksia(5, ihminen, op);
+        log.pelaaKierroksia(5, ihminen, op);
     }
 }

@@ -4,9 +4,9 @@
  */
 package Testit;
 
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import tekoalyt.*;
 import tiralabra.Siirto;
 
@@ -31,7 +31,7 @@ public class TekoalyTest {
     }
 
     @Test
-    public void hyvisOnKiva() {
+    public void hyvisOnHyva() {
         assertTrue(hyvis.teeSiirto() == Siirto.YHTEISTYO);
         hyvis.vastaanotaSiirto(Siirto.PETOS);
         assertTrue(hyvis.teeSiirto() == Siirto.YHTEISTYO);
@@ -60,7 +60,7 @@ public class TekoalyTest {
 
     @Test
     public void kostajaKostaa() {
-        Kostaja kostaja = new Kostaja();
+        AI kostaja = new Kostaja();
         assertTrue(kostaja.teeSiirto() == Siirto.YHTEISTYO);
         kostaja.vastaanotaSiirto(Siirto.YHTEISTYO);
         assertTrue(kostaja.teeSiirto() == Siirto.YHTEISTYO);
@@ -70,7 +70,7 @@ public class TekoalyTest {
 
     @Test
     public void epailijaToimii() {
-        Epailija epailija = new Epailija();
+        AI epailija = new Epailija();
         assertTrue(epailija.teeSiirto() == Siirto.PETOS);
         epailija.vastaanotaSiirto(Siirto.PETOS);
         assertTrue(epailija.teeSiirto() == Siirto.PETOS);
@@ -80,34 +80,80 @@ public class TekoalyTest {
 
     @Test
     public void kuvioNoudattaaKuviota() {
-        Kuvio kuvio = new Kuvio();
-        assertTrue(kuvio.teeSiirto() == Siirto.YHTEISTYO);
-        kuvio.vastaanotaSiirto(Siirto.PETOS);
-        assertTrue(kuvio.teeSiirto() == Siirto.YHTEISTYO);
-        kuvio.vastaanotaSiirto(Siirto.PETOS);
-        assertTrue(kuvio.teeSiirto() == Siirto.PETOS);
-        kuvio.vastaanotaSiirto(Siirto.PETOS);
-        assertTrue(kuvio.teeSiirto() == Siirto.YHTEISTYO);
-        kuvio.vastaanotaSiirto(Siirto.PETOS);
-        assertTrue(kuvio.teeSiirto() == Siirto.YHTEISTYO);
-        kuvio.vastaanotaSiirto(Siirto.PETOS);
-        assertTrue(kuvio.teeSiirto() == Siirto.PETOS);
-        kuvio.vastaanotaSiirto(Siirto.PETOS);
+        AI kuvio = new Kuvio();
+        for (int i = 0; i < 5; i++) {
+            assertTrue(kuvio.teeSiirto() == Siirto.YHTEISTYO);
+            kuvio.vastaanotaSiirto(Siirto.PETOS);
+            assertTrue(kuvio.teeSiirto() == Siirto.YHTEISTYO);
+            kuvio.vastaanotaSiirto(Siirto.PETOS);
+            assertTrue(kuvio.teeSiirto() == Siirto.PETOS);
+            kuvio.vastaanotaSiirto(Siirto.PETOS);
+        }
     }
 
     @Test
     public void laskijaLaskeeOikein() {
-        Laskija laskija = new Laskija(0);
+        AI laskija = new Laskija(0);
         assertTrue(laskija.teeSiirto() == Siirto.YHTEISTYO);
         laskija.vastaanotaSiirto(Siirto.PETOS);
         assertTrue(laskija.teeSiirto() == Siirto.PETOS);
         laskija.vastaanotaSiirto(Siirto.YHTEISTYO);
         assertTrue(laskija.teeSiirto() == Siirto.YHTEISTYO);
     }
-    
+
     @Test
-    public void kokeilijaKokeilee(){
-        Kokeilija kokeilija = new Kokeilija();
+    public void isompiLaskijaLaskeeOikein() {
+        AI laskija = new Laskija(10);
+        assertTrue(laskija.teeSiirto() == Siirto.YHTEISTYO);
+        for (int i = 0; i < 10; i++) {
+            laskija.vastaanotaSiirto(Siirto.PETOS);
+        }
+        assertTrue(laskija.teeSiirto() == Siirto.YHTEISTYO);
+        laskija.vastaanotaSiirto(Siirto.PETOS);
+        assertTrue(laskija.teeSiirto() == Siirto.PETOS);
+    }
+
+    @Test
+    public void kokeilijaPettaaHyvaaVastaan() {
+        AI kokeilija = new Kokeilija();
+        assertTrue(kokeilija.teeSiirto() == Siirto.YHTEISTYO);
+        kokeilija.vastaanotaSiirto(Siirto.YHTEISTYO);
+        assertTrue(kokeilija.teeSiirto() == Siirto.YHTEISTYO);
+        kokeilija.vastaanotaSiirto(Siirto.YHTEISTYO);
+        assertTrue(kokeilija.teeSiirto() == Siirto.PETOS);
+    }
+
+    @Test
+    public void montaKertaaPetettyKokeilijaPettaa() {
+        AI kokeilija = new Kokeilija();
+        for (int i = 0; i < 5; i++) {
+            kokeilija.vastaanotaSiirto(Siirto.PETOS);
+        }
+        assertTrue(kokeilija.teeSiirto() == Siirto.PETOS);
+    }
+
+    @Test
+    public void opportunistiPysyyKivana() {
+        AI opportunisti = new Opportunisti();
+        for (int i = 0; i < 100; i++) {
+            assertTrue(opportunisti.teeSiirto() == Siirto.YHTEISTYO);
+            opportunisti.vastaanotaSiirto(Siirto.YHTEISTYO);
+        }
+    }
+
+    @Test
+    public void opportunistiOppiiSiirtojenMaaranJaPettaaViimeisella() {
+        AI opportunisti = new Opportunisti();
+        for (int i = 0; i < 10; i++) {
+            opportunisti.vastaanotaSiirto(Siirto.YHTEISTYO);
+        }
+        assertTrue(opportunisti.teeSiirto() == Siirto.YHTEISTYO);
+
+        opportunisti.palautaAlkuperainenTila();
         
+        for (int i = 0; i < 10; i++) {
+            opportunisti.vastaanotaSiirto(Siirto.YHTEISTYO);
+        }
+        assertTrue(opportunisti.teeSiirto() == Siirto.PETOS);
     }
 }
