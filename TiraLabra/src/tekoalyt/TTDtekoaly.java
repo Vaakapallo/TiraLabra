@@ -4,7 +4,7 @@
  */
 package tekoalyt;
 
-import tiralabra.Siirto;
+import logiikka.Siirto;
 
 /**
  * Testien avulla kehitetty tekoäly, joka systemaattisesti testataan, niin että

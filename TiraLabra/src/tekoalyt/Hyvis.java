@@ -4,7 +4,7 @@
  */
 package tekoalyt;
 
-import tiralabra.Siirto;
+import logiikka.Siirto;
 
 /**
  * Teko"äly", joka tekee aina yhteistyötä.

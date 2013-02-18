@@ -11,7 +11,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import tekoalyt.*;
-import tiralabra.Logiikka;
+import logiikka.Peluuttaja;
 
 /**
  *
@@ -19,11 +19,11 @@ import tiralabra.Logiikka;
  */
 public class LogiikkaTest {
 
-    Logiikka log;
+    Peluuttaja log;
 
     @Before
     public void setUp() {
-        log = new Logiikka();
+        log = new Peluuttaja();
     }
 
     @Test
@@ -80,7 +80,7 @@ public class LogiikkaTest {
 
     @Test
     public void lisatytTekoalytPelaavat() {
-        Logiikka log2 = new Logiikka();
+        Peluuttaja log2 = new Peluuttaja();
         Hyvis hyvis = new Hyvis();
         Matkija matkija = new Matkija();
         log2.lisaaTekoaly(hyvis);

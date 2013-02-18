@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import tekoalyt.*;
-import tiralabra.Siirto;
+import logiikka.Siirto;
 
 /**
  *

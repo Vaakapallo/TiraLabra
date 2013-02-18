@@ -12,8 +12,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import tekoalyt.*;
 import tekoalyt.TTDtekoaly;
-import tiralabra.Logiikka;
-import tiralabra.Siirto;
+import logiikka.Peluuttaja;
+import logiikka.Siirto;
 
 /**
  * Parasta (toivottavasti) tekoälyä testaavat testiluokka.
@@ -22,11 +22,11 @@ import tiralabra.Siirto;
  */
 public class TTDTekoalyTest {
 
-    private Logiikka log;
+    private Peluuttaja log;
 
     @Before
     public void setUp() {
-        log = new Logiikka();
+        log = new Peluuttaja();
     }
 
     @Test

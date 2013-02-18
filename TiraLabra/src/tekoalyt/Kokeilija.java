@@ -4,7 +4,7 @@
  */
 package tekoalyt;
 
-import tiralabra.Siirto;
+import logiikka.Siirto;
 
 /**
  * Tekoäly, joka on pääosin hyvä, mutta kokeilee toista tekoälyä pettämällä sen

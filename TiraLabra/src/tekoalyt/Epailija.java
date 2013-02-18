@@ -1,6 +1,6 @@
 package tekoalyt;
 
-import tiralabra.Siirto;
+import logiikka.Siirto;
 
 /**
  * Tekoäly, joka pettää kunnes toinen pelaaja tekee yhteistyötä.

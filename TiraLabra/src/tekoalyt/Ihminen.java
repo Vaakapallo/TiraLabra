@@ -5,7 +5,7 @@
 package tekoalyt;
 
 import java.util.Scanner;
-import tiralabra.Siirto;
+import logiikka.Siirto;
 
 /**
  * "Tekoäly", joka on täysin ihmisen ohjaama.

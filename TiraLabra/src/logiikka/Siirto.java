@@ -1,4 +1,4 @@
-package tiralabra;
+package logiikka;
 
 /**
  * Pelin kaksi siirtoa.

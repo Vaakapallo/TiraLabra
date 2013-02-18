@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package tiralabra;
+package logiikka;
 
+import tietorakenteet.Jarjestaja;
 import java.util.Collections;
 import tekoalyt.AI;
 
@@ -12,7 +13,7 @@ import tekoalyt.AI;
  *
  * @author lvapaaka
  */
-public class Logiikka {
+public class Peluuttaja {
 
     /**
      * Tekoalyt sisältävä lista.
@@ -35,7 +36,7 @@ public class Logiikka {
     /**
      * Luokan konstruktori, joka alustaa listan.
      */
-    public Logiikka() {
+    public Peluuttaja() {
         tekoalyt = new AI[100];
         tekoalytIndeksi = 0;
     }

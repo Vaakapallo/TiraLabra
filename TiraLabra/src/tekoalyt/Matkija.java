@@ -4,7 +4,7 @@
  */
 package tekoalyt;
 
-import tiralabra.Siirto;
+import logiikka.Siirto;
 
 /**
  * Tekoäly, joka ensimmäisenä siirtona yhteistyötä, sitten vain kopioi toisen pelaajan siirron.
