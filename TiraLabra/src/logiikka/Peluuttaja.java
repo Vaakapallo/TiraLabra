@@ -81,6 +81,15 @@ public class Peluuttaja {
         toka.vastaanotaSiirto(ensimmaisen);
     }
 
+    /**
+     * Viimeisen kierroksen peluuttaava metodi, joka ei pyydä enää uutta 
+     * siirtoa tekoälyiltä.
+     * 
+     * Nollaa myös tekoälyt seuraavaa kierrosta varten.
+     *
+     * @param eka Ensimmäinen tekoäly
+     * @param toka Toinen tekoly
+     */
     private void pelaaViimeinenKierros(AI eka, AI toka) {
         Siirto ensimmaisen = eka.teeSiirto();
         Siirto toisen = toka.teeSiirto();
@@ -113,6 +122,8 @@ public class Peluuttaja {
 
     /**
      * Jokaisen listan tekoälyn toisiaan vastaan peluuttava metodi.
+     *
+     * Käskee myös järjestämään ja printtaamaan tulokset kierrosten jälkeen.
      */
     public void peluutaKaikkia(int kierroksia) {
         pakkaaTekoalyt();
@@ -122,13 +133,12 @@ public class Peluuttaja {
                 pelaaKierroksia(kierroksia, tekoalyt[i], tekoalyt[j]);
             }
         }
-        Jarjestaja jarjestaja = new Jarjestaja(tekoalyt);
-        tekoalyt = jarjestaja.kekoJarjestaminen();
+        jarjestaTulokset();
         printtaaTulokset();
     }
 
     /**
-     * Tulokset järjestävä ja printtaava metodi.
+     * Tulokset tekoälyjen toString:n avulla printtaava metodi.
      */
     private void printtaaTulokset() {
         for (int i = 0; i < tekoalytIndeksi; i++) {
@@ -136,11 +146,22 @@ public class Peluuttaja {
         }
     }
 
+    /**
+     * Tekoalyt helposti käsiteltäväksi taulukoksi pakkaava metodi.
+     */
     private void pakkaaTekoalyt() {
         AI[] uusiTekoalyt = new AI[tekoalytIndeksi];
         for (int i = 0; i < tekoalytIndeksi; i++) {
             uusiTekoalyt[i] = tekoalyt[i];
         }
         tekoalyt = uusiTekoalyt;
+    }
+
+    /**
+     * Itse toteutetulla kekojärjestämisellä tekoälyt järjestävä metodi.
+     */
+    private void jarjestaTulokset() {
+        Jarjestaja jarjestaja = new Jarjestaja(tekoalyt);
+        tekoalyt = jarjestaja.kekoJarjestaminen();
     }
 }

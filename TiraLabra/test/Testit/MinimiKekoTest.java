@@ -17,7 +17,7 @@ import tietorakenteet.MinimiKeko;
  *
  * @author lvapaaka
  */
-public class KekoTest {
+public class MinimiKekoTest {
 
     @Before
     public void setUp() {
