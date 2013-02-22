@@ -8,7 +8,7 @@ import java.util.Scanner;
 import tekoalyt.*;
 
 /**
- * Keskeneräinen (ja ylimääräinen) Valikko-Luokka
+ * KESKENERÄINEN (ja ylimääräinen) Valikko-Luokka
  *
  * @author lvapaaka
  */
@@ -20,16 +20,33 @@ public class Valikko {
     public Valikko() {
         peluuttaja = new Peluuttaja();
         lukija = new Scanner(System.in);
-        kysyKayttajalta();
+        turnauksenSaadot();
     }
 
-    private void kysyKayttajalta() {
+    private void turnauksenSaadot() {
         System.out.println("Määritetään turnauksen säännöt ja osallistujat");
-        System.out.println("Kuinka monta siirtoa per kierros? (jos pelaat itse, suositellaan alle 20)");
+        System.out.println("Kuinka monta siirtoa per kierros? (jos haluat itse osallistua, suositellaan alle 20)");
         int kierroksia = Integer.parseInt(lukija.nextLine());
 
-        System.out.println("Haluatko valita turnauksen tekoälyt?");
-        if (vastasikoKayttajaKylla(lukija.nextLine())) {
+        tekoalyValinta();
+
+        if (kierroksia < 20) {
+            System.out.println("Haluatko ottaa osaa turnaukseen vai peluuttaa tekoälyjä keskenään? (k tai y jos haluat)");
+            if (kysyKayttajanMyontymysta()) {
+                System.out.println("Haluatko huijata turnauksessa? Eli nähdä vastustajan nimen aina kierroksen alussa (k tai y jos haluat)");
+                if (kysyKayttajanMyontymysta()) {
+                    peluuttaja.laitaHuijausPaalle();
+                }
+                System.out.println("Onnea turnaukseen!");
+                peluuttaja.lisaaTekoaly(new Ihminen());
+            }
+        }
+        peluuttaja.peluutaKaikkia(kierroksia);
+    }
+
+    private void tekoalyValinta() {
+        System.out.println("Haluatko valita turnauksen tekoälyt? (k tai y jos haluat)");
+        if (kysyKayttajanMyontymysta()) {
             printtaaTekoälytTunnuksineen();
             System.out.println("Valitse tekoälyt: (Tekoälyjä on turnauksessa sen kirjainta vastaava määrä)");
             System.out.println("Anna tekoälysyöte");
@@ -38,36 +55,32 @@ public class Valikko {
         } else {
             lisaaPerusTekoalyt();
         }
-        System.out.println("Haluatko ottaa osaa turnaukseen vai peluuttaa tekoälyjä keskenään? (k jos haluat)");
-        if (vastasikoKayttajaKylla(lukija.nextLine())) {
-            System.out.println("Olet mukana turnauksessa!");
-            peluuttaja.lisaaTekoaly(new Ihminen());
-        }
+    }
 
-        peluuttaja.peluutaKaikkia(kierroksia);
+    private boolean kysyKayttajanMyontymysta() {
+        String syote = lukija.nextLine();
+        return syote.matches("(?i).*K.*") || syote.matches("(?i).*Y.*");
+    }
+
+    private void printtaaTekoälytTunnuksineen() {
+        System.out.println("Tekoälyt:");
+        System.out.println("(E)pailija");
+        System.out.println("(H)yvis");
+        System.out.println("Kokeili(j)a");
+        System.out.println("(K)ostaja");
+        System.out.println("K(u)vio");
+        System.out.println("(L)askija");
+        System.out.println("(M)atkija");
+        System.out.println("(O)pportunisti");
+        System.out.println("(P)ahis");
+        System.out.println("(S)atunnainen");
+        System.out.println("S(i)kSak");
     }
 
     private void parsiTekoalySyote(String tekoalyt) {
         String vaihtoehdot = "ehjkumlopsi";
         for (int i = 0; i < vaihtoehdot.length(); i++) {
-            lisaaTekoalyja(vaihtoehdot.charAt(i), ApuMetodeita.laskeMerkkienMaara(vaihtoehdot.charAt(i), tekoalyt));
-        }
-    }
-
-    private boolean vastasikoKayttajaKylla(String syote) {
-        return syote.matches("(?i).*K.*") || syote.matches("(?i).*Y.*");
-    }
-
-    private Siirto lueSiirtoKayttajalta() {
-        while (true) {
-            String valinta = lukija.nextLine();
-            if (valinta.matches("(?i).*K.*")) {
-                return Siirto.YHTEISTYO;
-            } else if (valinta.matches("(?i).*P.*")) {
-                return Siirto.PETOS;
-            } else {
-                System.out.println("Epäkelpo siirto, yritä uudelleen:");
-            }
+            lisaaTekoalyja(vaihtoehdot.charAt(i), ApuMetodeita.laskeMerkinMaaraMerkkiJonossa(vaihtoehdot.charAt(i), tekoalyt));
         }
     }
 
@@ -114,21 +127,6 @@ public class Valikko {
                     break;
             }
         }
-    }
-
-    private void printtaaTekoälytTunnuksineen() {
-        System.out.println("Tekoälyt:");
-        System.out.println("(E)pailija");
-        System.out.println("(H)yvis");
-        System.out.println("Kokeili(j)a");
-        System.out.println("(K)ostaja");
-        System.out.println("K(u)vio");
-        System.out.println("(L)askija");
-        System.out.println("(M)atkija");
-        System.out.println("(O)pportunisti");
-        System.out.println("(P)ahis");
-        System.out.println("(S)atunnainen");
-        System.out.println("S(i)kSak");
     }
 
     private void lisaaPerusTekoalyt() {

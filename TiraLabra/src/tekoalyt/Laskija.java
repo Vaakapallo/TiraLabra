@@ -26,9 +26,10 @@ public class Laskija extends AI {
     private int alkuperainenKiltteys;
 
     public Laskija(int kiltteysAste) {
-        super("Laskija (Kiltteys " + kiltteysAste + ")", Siirto.YHTEISTYO);
+        super("Laskija (Kiltteys " + kiltteysAste + ")", null);
         hyvyysPisteet = kiltteysAste;
         alkuperainenKiltteys = kiltteysAste;
+        seuraavaSiirto = maaritaSiirtoPisteista();
     }
 
     /**

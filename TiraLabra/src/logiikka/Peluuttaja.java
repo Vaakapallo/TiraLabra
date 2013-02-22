@@ -32,6 +32,10 @@ public class Peluuttaja {
      * Rangaistus pelaajille jos molemmat pettivät.
      */
     private final int pettureidenKompromissi = 5;
+    /**
+     * Muuttuja, joka määrittää saako pelaaja tietää, kuka hänellä on vastassa.
+     */
+    private boolean huijaus = false;
 
     /**
      * Luokan konstruktori, joka alustaa listan.
@@ -82,9 +86,9 @@ public class Peluuttaja {
     }
 
     /**
-     * Viimeisen kierroksen peluuttaava metodi, joka ei pyydä enää uutta 
-     * siirtoa tekoälyiltä.
-     * 
+     * Viimeisen kierroksen peluuttaava metodi, joka ei pyydä enää uutta siirtoa
+     * tekoälyiltä.
+     *
      * Nollaa myös tekoälyt seuraavaa kierrosta varten.
      *
      * @param eka Ensimmäinen tekoäly
@@ -129,7 +133,11 @@ public class Peluuttaja {
         pakkaaTekoalyt();
         for (int i = 0; i < tekoalytIndeksi; i++) {
             for (int j = i + 1; j < tekoalytIndeksi; j++) {
-//                System.out.println("Vastakkain: " + tekoalyt[i] + " ja " + tekoalyt[j]);
+                if (huijaus) {
+                    if (tekoalyt[j].getNimi().equalsIgnoreCase("Ihminen")) {
+                        System.out.println("Vastustajana: " + tekoalyt[i].getNimi());
+                    }
+                }
                 pelaaKierroksia(kierroksia, tekoalyt[i], tekoalyt[j]);
             }
         }
@@ -163,5 +171,12 @@ public class Peluuttaja {
     private void jarjestaTulokset() {
         Jarjestaja jarjestaja = new Jarjestaja(tekoalyt);
         tekoalyt = jarjestaja.kekoJarjestaminen();
+    }
+
+    /**
+     * Pistää huijauksen päälle, eli pelaaja näkee ketä vastassa hän on jokaisella kierroksella.
+     */
+    public void laitaHuijausPaalle() {
+        huijaus = true;
     }
 }

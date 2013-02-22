@@ -150,10 +150,16 @@ public class TekoalyTest {
         assertTrue(opportunisti.teeSiirto() == Siirto.YHTEISTYO);
 
         opportunisti.palautaAlkuperainenTila();
-        
+
         for (int i = 0; i < 10; i++) {
             opportunisti.vastaanotaSiirto(Siirto.YHTEISTYO);
         }
         assertTrue(opportunisti.teeSiirto() == Siirto.PETOS);
+    }
+
+    @Test
+    public void pahaLaskuriPettaaHeti() {
+        AI pahaLaskija = new Laskija(-5);
+        assertTrue(pahaLaskija.teeSiirto() == Siirto.PETOS);
     }
 }
