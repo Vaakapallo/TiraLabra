@@ -27,25 +27,25 @@ public class ApuMetodiTest {
     @Test
     public void merkkiLaskuriLaskeeYhdenMerkinOikein(){
         String sana = "a";
-        assertEquals(1, ApuMetodeita.laskeMerkinMaaraMerkkiJonossa('a', sana));
+        assertEquals(1, ApuMetodeita.laskeMerkinMaaraMerkkijonossa('a', sana));
     }
     
     @Test
     public void merkkiLaskuriLaskeeMontaMerkkiaOikein(){
         String sana = "banaani";
-        assertEquals(3, ApuMetodeita.laskeMerkinMaaraMerkkiJonossa('a', sana));
+        assertEquals(3, ApuMetodeita.laskeMerkinMaaraMerkkijonossa('a', sana));
     }
     
     @Test
     public void merkkiLaskuriEiLoydaVaariaMerkkeja(){
         String sana = "banaani";
-        assertEquals(0, ApuMetodeita.laskeMerkinMaaraMerkkiJonossa('u', sana));
+        assertEquals(0, ApuMetodeita.laskeMerkinMaaraMerkkijonossa('u', sana));
     }
     
     @Test
     public void merkkiLaskuriOsaaKasitellaTyhjanSyotteen(){
         String sana = "";
-        assertEquals(0, ApuMetodeita.laskeMerkinMaaraMerkkiJonossa('a', sana));
+        assertEquals(0, ApuMetodeita.laskeMerkinMaaraMerkkijonossa('a', sana));
     }
     
     

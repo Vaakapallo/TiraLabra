@@ -10,7 +10,7 @@ package logiikka;
  */
 public class ApuMetodeita {
 
-    public static int laskeMerkinMaaraMerkkiJonossa(char merkki, String kohde) {
+    public static int laskeMerkinMaaraMerkkijonossa(char merkki, String kohde) {
         int montako = 0;
         kohde = kohde.toLowerCase();
         for (int i = 0; i < kohde.length(); i++) {

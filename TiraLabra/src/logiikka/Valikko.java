@@ -8,7 +8,7 @@ import java.util.Scanner;
 import tekoalyt.*;
 
 /**
- * KESKENERÄINEN (ja ylimääräinen) Valikko-Luokka
+ * Turnauksen valintoja säätävä luokka.
  *
  * @author lvapaaka
  */
@@ -23,6 +23,9 @@ public class Valikko {
         turnauksenSaadot();
     }
 
+    /**
+     * Turnauksen valinnat kyselevä metodi.
+     */
     private void turnauksenSaadot() {
         System.out.println("Määritetään turnauksen säännöt ja osallistujat");
         System.out.println("Kuinka monta siirtoa per kierros? (jos haluat itse osallistua, suositellaan alle 20)");
@@ -30,8 +33,8 @@ public class Valikko {
 
         tekoalyValinta();
 
-        if (kierroksia < 20) {
-            System.out.println("Haluatko ottaa osaa turnaukseen vai peluuttaa tekoälyjä keskenään? (k tai y jos haluat)");
+        if (kierroksia < 50) {
+            System.out.println("Haluatko itse ottaa osaa turnaukseen? (k tai y jos haluat)");
             if (kysyKayttajanMyontymysta()) {
                 System.out.println("Haluatko huijata turnauksessa? Eli nähdä vastustajan nimen aina kierroksen alussa (k tai y jos haluat)");
                 if (kysyKayttajanMyontymysta()) {
@@ -44,11 +47,14 @@ public class Valikko {
         peluuttaja.peluutaKaikkia(kierroksia);
     }
 
+    /**
+     * Joko pelaajan toimesta tai vakioasetuksilla turnauksen tekoalyt määrittävä metodi.
+     */
     private void tekoalyValinta() {
         System.out.println("Haluatko valita turnauksen tekoälyt? (k tai y jos haluat)");
         if (kysyKayttajanMyontymysta()) {
             printtaaTekoälytTunnuksineen();
-            System.out.println("Valitse tekoälyt: (Tekoälyjä on turnauksessa sen kirjainta vastaava määrä)");
+            System.out.println("Valitse tekoälyt: (Tekoälyjä lisätään turnaukseen sen kirjainta vastaava määrä)");
             System.out.println("Anna tekoälysyöte");
             String tekoalyt = lukija.nextLine().toLowerCase();
             parsiTekoalySyote(tekoalyt);
@@ -57,11 +63,21 @@ public class Valikko {
         }
     }
 
+    /**
+     * Kyllä/ei kysymyksiä teettävä metodi.
+     * 
+     * Jos käyttäjän syötteessä on k tai y, niin vastaus tulkitaan myönteiseksi.
+     * 
+     * @return Myöntyikö käyttäjä.
+     */
     private boolean kysyKayttajanMyontymysta() {
         String syote = lukija.nextLine();
         return syote.matches("(?i).*K.*") || syote.matches("(?i).*Y.*");
     }
 
+    /**
+     * Jokaista tekoälyä vastaavan merkin käyttäjälle ilmoittava metodi.
+     */
     private void printtaaTekoälytTunnuksineen() {
         System.out.println("Tekoälyt:");
         System.out.println("(E)pailija");
@@ -77,13 +93,35 @@ public class Valikko {
         System.out.println("S(i)kSak");
     }
 
+    /**
+     * Muuttaa merkkijonon lisäyskäskyiksi lisaaTekoalyja-metodille.
+     * 
+     * Jokainen tekoälyä vastaava merkki tarkoittaa yhden senkaltaisen tekoälyn
+     * lisäämistä turnaukseen.
+     * 
+     * Esim:
+     * Jos syöte on "kkkool", niin lisätään turnaukseen:
+     * 3 Kostajaa
+     * 2 Opportunistia
+     * 1 Laskija
+     * 
+     * Tietyn merkin määrä merkkijonossa lasketaan laskeMerkinMaaraMerkkijonossa-metodin avulla.
+     * 
+     * @param tekoalyt syöte, jonka perusteella tekoälyt määritetään. 
+     */
     private void parsiTekoalySyote(String tekoalyt) {
         String vaihtoehdot = "ehjkumlopsi";
         for (int i = 0; i < vaihtoehdot.length(); i++) {
-            lisaaTekoalyja(vaihtoehdot.charAt(i), ApuMetodeita.laskeMerkinMaaraMerkkiJonossa(vaihtoehdot.charAt(i), tekoalyt));
+            lisaaTekoalyja(vaihtoehdot.charAt(i), ApuMetodeita.laskeMerkinMaaraMerkkijonossa(vaihtoehdot.charAt(i), tekoalyt));
         }
     }
 
+    /**
+     * Tekoälyt lisäävä metodi.
+     * 
+     * @param tunnus Lisättävän tekoälyn tunnus
+     * @param lisattavienTekoalyjenMaara kuinka monta kertaa merkki esiintyi syötteessä 
+     */
     private void lisaaTekoalyja(char tunnus, int lisattavienTekoalyjenMaara) {
         if (lisattavienTekoalyjenMaara == 0) {
             return;
@@ -129,6 +167,9 @@ public class Valikko {
         }
     }
 
+    /**
+     * Tekoälyturnauksen vakiotekoälyt lisäävä metodi.
+     */
     private void lisaaPerusTekoalyt() {
         peluuttaja.lisaaTekoaly(new Laskija(-5));
         peluuttaja.lisaaTekoaly(new Laskija(1));
