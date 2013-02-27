@@ -174,7 +174,7 @@ public class Peluuttaja {
     }
 
     /**
-     * Pistää huijauksen päälle, eli pelaaja näkee ketä vastassa hän on jokaisella kierroksella.
+     * Pistää huijauksen päälle, eli pelaaja näkee ketä vastaan hän pelaa jokaisella kierroksella.
      */
     public void laitaHuijausPaalle() {
         huijaus = true;

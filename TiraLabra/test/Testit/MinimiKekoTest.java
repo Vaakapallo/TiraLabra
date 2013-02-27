@@ -95,27 +95,40 @@ public class MinimiKekoTest {
 
     @Test
     public void keonSuorituskykyLisays() {
+        lisaaKekoonJaOtaAika(1);
         lisaaKekoonJaOtaAika(10);
         lisaaKekoonJaOtaAika(100);
         lisaaKekoonJaOtaAika(1000);
         lisaaKekoonJaOtaAika(10000);
+        lisaaKekoonJaOtaAika(100000);
+        lisaaKekoonJaOtaAika(1000000);
     }
 
     @Test
-    public void poista1000keosta() {
-        MinimiKeko keko = new MinimiKeko(5000);
+    public void keonSuorituskykyPoisto() {
+        poistaKeostaJaOtaAika(1);
+        poistaKeostaJaOtaAika(10);
+        poistaKeostaJaOtaAika(100);
+        poistaKeostaJaOtaAika(1000);
+        poistaKeostaJaOtaAika(10000);
+        poistaKeostaJaOtaAika(100000);
+        poistaKeostaJaOtaAika(1000000);
+    }
+
+    private void poistaKeostaJaOtaAika(int montako) {
+        MinimiKeko keko = new MinimiKeko(montako + 100);
         Random random = new Random();
-        for (int i = 0; i < 5000; i++) {
+        for (int i = 0; i < montako + 100; i++) {
             keko.lisaaKekoon(random.nextInt(1000));
         }
         long alkuaika = System.nanoTime();
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < montako; i++) {
             keko.poistaPieninKeosta();
         }
-        System.out.println("Kekopoisto (1000): " + (System.nanoTime() - alkuaika));
+        System.out.println("Kekopoisto (" + montako + "): " + (System.nanoTime() - alkuaika));
     }
 
-    private long lisaaKekoonJaOtaAika(int montako) {
+    private void lisaaKekoonJaOtaAika(int montako) {
         MinimiKeko keko = new MinimiKeko(montako);
         long alkuaika = System.nanoTime();
         Random random = new Random();
@@ -123,6 +136,5 @@ public class MinimiKekoTest {
             keko.lisaaKekoon(random.nextInt(1000));
         }
         System.out.println("kekolisäys (" + montako + "): " + (System.nanoTime() - alkuaika));
-        return (System.nanoTime() - alkuaika);
     }
 }
