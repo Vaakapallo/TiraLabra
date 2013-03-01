@@ -15,6 +15,9 @@ import tekoalyt.*;
 public class Valikko {
 
     private Scanner lukija;
+    /**
+     * Peluuttaja tekoälyjen lisäämistä varten.
+     */
     private Peluuttaja peluuttaja;
 
     public Valikko() {

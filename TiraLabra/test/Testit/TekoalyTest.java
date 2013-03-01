@@ -18,7 +18,6 @@ public class TekoalyTest {
 
     private Hyvis hyvis;
     private Pahis pahis;
-    private Matkija matkija;
 
     public TekoalyTest() {
     }
@@ -27,7 +26,7 @@ public class TekoalyTest {
     public void setUp() {
         hyvis = new Hyvis();
         pahis = new Pahis();
-        matkija = new Matkija();
+
     }
 
     @Test
@@ -50,6 +49,7 @@ public class TekoalyTest {
 
     @Test
     public void matkijaMatkii() {
+        AI matkija = new Matkija();
         matkija.vastaanotaSiirto(Siirto.YHTEISTYO);
         assertTrue(matkija.teeSiirto() == Siirto.YHTEISTYO);
         matkija.vastaanotaSiirto(Siirto.PETOS);
@@ -161,5 +161,20 @@ public class TekoalyTest {
     public void pahaLaskuriPettaaHeti() {
         AI pahaLaskija = new Laskija(-5);
         assertTrue(pahaLaskija.teeSiirto() == Siirto.PETOS);
+    }
+
+    @Test
+    public void sikSakSikSakkaa() {
+        AI siksak = new SikSak();
+        for (int i = 0; i < 10; i++) {
+            assertTrue(siksak.teeSiirto() == Siirto.YHTEISTYO);
+            if (i % 2 == 0) {
+                siksak.vastaanotaSiirto(Siirto.PETOS);
+            } else {
+                siksak.vastaanotaSiirto(Siirto.YHTEISTYO);
+            }
+            assertTrue(siksak.teeSiirto() == Siirto.PETOS);
+            siksak.vastaanotaSiirto(Siirto.YHTEISTYO);
+        }
     }
 }

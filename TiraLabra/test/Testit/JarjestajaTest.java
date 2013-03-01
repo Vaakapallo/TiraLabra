@@ -12,14 +12,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * Järjestysalgoritmin toimintaa testaava luokka.
+ * 
  * @author lvapaaka
  */
-public class TekoalyKekoTest {
+public class JarjestajaTest {
     
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
      @Test
      public void hello() {}
 }
