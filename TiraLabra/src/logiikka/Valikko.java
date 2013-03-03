@@ -8,7 +8,7 @@ import java.util.Scanner;
 import tekoalyt.*;
 
 /**
- * Turnauksen valintoja säätävä luokka.
+ * (Ylimääräinen) Turnauksen valintoja säätävä luokka.
  *
  * @author lvapaaka
  */

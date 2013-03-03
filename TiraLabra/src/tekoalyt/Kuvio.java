@@ -24,22 +24,31 @@ public class Kuvio extends AI {
     }
 
     /**
-     * Maarittaa siirtokuvion tämänhetkisen kohdan.
-     * @param vastustajanSiirto 
+     * Koska tekoäly ei käytä toisen siirtoa mihinkään, ohjataan vain
+     * apumetodiin.
+     *
+     * @param vastustajanSiirto
      */
     @Override
     public void vastaanotaSiirto(Siirto vastustajanSiirto) {
-        laskuri++;
-        if (laskuri % 3 == 0) {
-            seuraavaSiirto = Siirto.PETOS;
-        } else {
-            seuraavaSiirto = Siirto.YHTEISTYO;
-        }
+        teeKuvionMukainenSiirto();
     }
 
     @Override
     public void palautaAlkuperainenTila() {
         seuraavaSiirto = Siirto.YHTEISTYO;
         laskuri = 1;
+    }
+
+    /**
+     * Kuviota noudattaen seuraavan siirron määrittävä metodi.
+     */
+    private void teeKuvionMukainenSiirto() {
+        laskuri++;
+        if (laskuri % 3 == 0) {
+            seuraavaSiirto = Siirto.PETOS;
+        } else {
+            seuraavaSiirto = Siirto.YHTEISTYO;
+        }
     }
 }

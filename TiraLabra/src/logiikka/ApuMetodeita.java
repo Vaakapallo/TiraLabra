@@ -10,6 +10,13 @@ package logiikka;
  */
 public class ApuMetodeita {
 
+    /**
+     * Valikon avuksi tehty metodi, joka laskee tietyn merkin määrän merkkijonossa.
+     * 
+     * @param merkki laskettava merkki
+     * @param kohde merkkijono josta lasketaan
+     * @return merkkien määrä merkkijonossa
+     */
     public static int laskeMerkinMaaraMerkkijonossa(char merkki, String kohde) {
         int montako = 0;
         kohde = kohde.toLowerCase();

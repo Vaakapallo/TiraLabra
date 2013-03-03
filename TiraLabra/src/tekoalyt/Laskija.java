@@ -46,6 +46,10 @@ public class Laskija extends AI {
         seuraavaSiirto = maaritaSiirtoPisteista();
     }
 
+    /**
+     * Hyvyyspisteet asetetaan takaisin aloitusarvoon, jotta edelliset kierrokset
+     * eivät vaikuta seuraaviin.
+     */
     @Override
     public void palautaAlkuperainenTila() {
         seuraavaSiirto = Siirto.YHTEISTYO;

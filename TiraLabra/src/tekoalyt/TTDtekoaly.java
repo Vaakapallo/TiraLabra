@@ -10,7 +10,7 @@ import logiikka.Siirto;
  * Testien avulla kehitetty tekoäly, joka systemaattisesti testataan, niin että
  * se pärjää mahdollisimman hyvin kaikkia toisia tekoälyja vastaan.
  * 
- * HYLLYLLÄ! Ei toimi!
+ * HYLLYTETTY! Ei toimi!
  *
  * @author lvapaaka
  */

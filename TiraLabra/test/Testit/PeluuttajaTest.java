@@ -17,7 +17,7 @@ import logiikka.Peluuttaja;
  *
  * @author lvapaaka
  */
-public class LogiikkaTest {
+public class PeluuttajaTest {
 
     Peluuttaja log;
 

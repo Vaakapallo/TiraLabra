@@ -17,6 +17,8 @@ import logiikka.Siirto;
 
 /**
  * Parasta (toivottavasti) tekoälyä testaavat testiluokka.
+ * 
+ * JÄTETTY KESKEN HUONONA IDEANA
  *
  * @author lvapaaka
  */

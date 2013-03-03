@@ -34,6 +34,10 @@ public class Opportunisti extends AI {
         siirtojaNyt++;
     }
 
+    /**
+     * Metodi nollaa Opportunistin, mutta myös tallentaa siirtolaskurin arvon ensi
+     * kierrosta varten.
+     */
     @Override
     public void palautaAlkuperainenTila() {
         siirtojaKierroksessa = siirtojaNyt;

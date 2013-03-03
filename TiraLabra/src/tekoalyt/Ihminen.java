@@ -32,6 +32,11 @@ public class Ihminen extends AI {
         seuraavaSiirto = lueSiirtoKayttajalta();
     }
 
+    /**
+     * Viime kierroksen tuloksen ilmoittava ja seuraavan siirron kysyvä metodi.
+     *
+     * @param vastustajanSiirto
+     */
     @Override
     public void vastaanotaSiirto(Siirto vastustajanSiirto) {
         System.out.println("Siirtosi oli " + seuraavaSiirto);
@@ -41,6 +46,10 @@ public class Ihminen extends AI {
         seuraavaSiirto = lueSiirtoKayttajalta();
     }
 
+    /**
+     * Ilmoitetaan pelaajan tämänhetkinen pistetilanne ja kysytään ensimmäinen
+     * siirto seuraavalle kierrokselle.
+     */
     @Override
     public void palautaAlkuperainenTila() {
         System.out.println("Kierros päättyi!");

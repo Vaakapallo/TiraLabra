@@ -13,13 +13,15 @@ import tekoalyt.AI;
  */
 public class Jarjestaja {
 
+    /**
+     * Tietorakenne, jonka avulla järjestäminen toimii.
+     */
     private TekoalyKeko keko;
+    /**
+     * Järjestettävät tekoäly taulukkona.
+     */
     private AI[] jarjestettava;
 
-//    public Jarjestaja(int[] jarjestettava) {
-//        keko = new MinimiKeko(jarjestettava.length);
-//        this.jarjestettava = jarjestettava;
-//    }
     public Jarjestaja(AI[] jarjestettava) {
         keko = new TekoalyKeko(jarjestettava.length);
         this.jarjestettava = jarjestettava;
