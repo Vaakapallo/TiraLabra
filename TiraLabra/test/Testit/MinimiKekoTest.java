@@ -95,6 +95,7 @@ public class MinimiKekoTest {
 
     @Test
     public void keonSuorituskykyLisays() {
+        System.out.println("Lisaykset");
         lisaaKekoonJaOtaAika(1);
         lisaaKekoonJaOtaAika(10);
         lisaaKekoonJaOtaAika(100);
@@ -106,6 +107,7 @@ public class MinimiKekoTest {
 
     @Test
     public void keonSuorituskykyPoisto() {
+        System.out.println("Poistot");
         poistaKeostaJaOtaAika(1);
         poistaKeostaJaOtaAika(10);
         poistaKeostaJaOtaAika(100);
@@ -130,8 +132,8 @@ public class MinimiKekoTest {
 
     private void lisaaKekoonJaOtaAika(int montako) {
         MinimiKeko keko = new MinimiKeko(montako);
-        long alkuaika = System.nanoTime();
         Random random = new Random();
+        long alkuaika = System.nanoTime();
         for (int i = 0; i < montako; i++) {
             keko.lisaaKekoon(random.nextInt(1000));
         }
